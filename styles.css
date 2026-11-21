@@ -104,3 +104,49 @@
  .day-banner-right a{max-width:none;white-space:normal;flex-grow:1}
 }
 @media print{.weather-refresh,.poll-links,.rain-buttons{display:none!important}.weather-section,.rain-plan-section{display:block!important;break-inside:avoid}}
+
+
+/* Yilan premium-local vegetarian restaurant curation, 2026/11/28–29 */
+.veggie-curation{max-width:1330px;margin:0 auto 35px;padding:35px;border:1px solid #d6e3d4;border-radius:24px;background:linear-gradient(135deg,#f3f7ef 0%,#f7f6ed 100%)}
+.veggie-curation-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:22px;margin-bottom:27px}
+.veggie-curation-eyebrow{display:block;color:#719078;font-weight:900;letter-spacing:2.3px;font-size:10px}
+.veggie-curation-heading h3{font-size:30px;letter-spacing:-1.2px;color:#2d553c;margin:7px 0 5px}
+.veggie-curation-heading p{max-width:720px;color:#708477;font-size:12px;line-height:1.9}
+.veggie-curation-budget{text-align:right;min-width:210px;color:#356448}
+.veggie-curation-budget span,.veggie-curation-budget small{display:block;font-size:10px;color:#7b8f7e}
+.veggie-curation-budget strong{display:block;font-size:26px;font-weight:900;letter-spacing:-.6px;margin:3px 0}
+.veggie-curation-budget em{font-size:11px;font-style:normal;font-weight:800}
+.veggie-feature-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.veggie-feature-card{display:flex;flex-direction:column;min-width:0;padding:24px 22px 21px;border-radius:17px;background:#fffefa;border:1px solid #e2e9dd;box-shadow:0 5px 26px rgba(21,63,44,.045)}
+.veggie-feature-top{display:flex;align-items:center;justify-content:space-between;color:#63816b}
+.veggie-feature-index{font-family:Georgia,serif;font-size:28px;color:#aac4ac}
+.veggie-feature-label{font-weight:900;font-size:11px;border-radius:99px;background:#e6efe2;padding:6px 12px;color:#466d50}
+.veggie-feature-card h3{font-size:19px;color:#2b503b;line-height:1.5;margin:14px 0 8px;letter-spacing:-.4px;overflow-wrap:anywhere}
+.veggie-feature-tag{font-size:10px;color:#9a7545;font-weight:800;background:#fbf2e6;border-radius:99px;align-self:flex-start;padding:4px 11px;margin-bottom:12px}
+.veggie-feature-card>p{font-size:11px;line-height:1.9;color:#6f8173}
+.veggie-feature-price{display:block;margin:17px 0 12px;font-size:15px;letter-spacing:-.35px;color:#3d6d4e;line-height:1.6}
+.veggie-feature-detail{font-size:11px;line-height:1.9;color:#6f8175;border-top:1px solid #e8eee4;padding-top:14px}
+.veggie-feature-card .veggie-feature-note{margin-top:10px;padding:9px 11px;background:#fcf5ea;border-radius:8px;color:#98774c;font-size:10px}
+.veggie-feature-actions{margin-top:auto;padding-top:18px;display:flex;gap:8px;flex-wrap:wrap}
+.veggie-feature-actions a{background:#e9f0e6;color:#356947;border-radius:100px;padding:8px 11px;font-size:10px;font-weight:900;white-space:nowrap}
+.veggie-feature-actions a:first-child{color:white;background:#276044}
+.veggie-feature-actions a:hover{filter:brightness(.92)}
+.meal-price-pill{display:inline-flex;color:#36694a;background:#e6f1e4;padding:5px 10px;border-radius:8px;font-size:11px;font-weight:900;margin-top:10px;line-height:1.8}
+.meal-cell-price{font-weight:900;font-size:11px;line-height:1.7;color:#406f4f;margin:0 0 11px}
+@media(max-width:1000px){.veggie-feature-grid{grid-template-columns:1fr 1fr}.veggie-feature-card:last-child{grid-column:1/-1}.veggie-curation{padding:25px}}
+@media(max-width:760px){
+  .veggie-curation{padding:19px;margin-bottom:22px;border-radius:15px}
+  .veggie-curation-heading{flex-direction:column;align-items:flex-start;gap:13px;margin-bottom:21px}
+  .veggie-curation-heading h3{font-size:25px}
+  .veggie-curation-budget{text-align:left;min-width:0}
+  .veggie-curation-budget strong{font-size:23px}
+  .veggie-feature-grid{grid-template-columns:1fr;gap:11px}
+  .veggie-feature-card:last-child{grid-column:auto}
+  .veggie-feature-card{padding:20px}
+  .veggie-feature-card h3{font-size:18px}
+  .veggie-feature-price{font-size:14px}
+  .veggie-feature-actions a{padding:8px 10px}
+  .meal-price-pill{font-size:10px}
+  .meal-cell-price{font-size:10px}
+}
+@media print{.veggie-feature-actions{display:none!important}.veggie-curation,.veggie-feature-card{break-inside:avoid}}

@@ -18,17 +18,17 @@
     satLunch: {
       time:'週六午餐',
       meat:{name:'拾松辦桌小吃',type:'宜蘭在地辦桌風味',desc:'西魯肉、糕渣、卜肉等經典宜蘭菜；靠近五峰旗一帶，適合中午順遊。',address:'宜蘭縣礁溪鄉奇峰街36號',hours:'11:00–14:00 / 17:00–20:00',phone:'03-988-1136',tip:'假日客多，出發前先確認現場候位。'},
-      veg:{name:'清香素食麵館',type:'在地素食麵飯',desc:'熱湯、素麵與家常蔬食，補充健行後的體力。',address:'宜蘭縣礁溪鄉中山路二段13號',hours:'週六 09:30–15:00、17:00–20:00',phone:'03-988-0601',tip:'素食餐廳；全素與蛋奶素請依實際點餐確認。'}
+      veg:{name:'明溱禪悅無菜單養生料理',type:'礁溪全素｜禪風無菜單套餐・50 席／停車',desc:'在地創意全素養生料理，器皿與季節蔬食搭配，適合正式的旅行午餐。採預約制，預留至少 80–90 分鐘慢慢用餐。',address:'宜蘭縣礁溪鄉武暖路121之7號',hours:'週六午餐 11:30–14:30（預約制；週日休）',phone:'0976-339-999',price:'NT$680＋10% ≈ NT$748／人',tip:'推薦選 680 元套餐（含一成約 748 元）；1000 元套餐另加一成會超過預算。請先預約並確認最新菜單、實際午餐時段。',source:'https://vegemap.merit-times.com/restaurant_detail/%E6%98%8E%E6%BA%B1%E7%A6%AA%E6%82%85',feature:'約 50 個座位・有停車位・全素精緻套餐',note:'1000 元套餐若另收一成將超過每人上限。'}
     },
     satDinner: {
       time:'週六晚餐',
       meat:{name:'御園料理',type:'台式海鮮與熱炒',desc:'礁溪在地台菜、海鮮與熱炒，安排在飯店休息後用餐。',address:'宜蘭縣礁溪鄉中山路二段172號',hours:'週六 17:00–22:30（資料平台顯示）',phone:'03-987-4292',tip:'營業時間各平台略有差異，請先電話確認。'},
-      veg:{name:'悅德蔬食・鳳凰店',type:'創意蔬食／無菜單料理',desc:'位在飯店周邊健康路，適合住礁溪的晚上慢慢享用精緻蔬食。',address:'宜蘭縣礁溪鄉健康路50號1樓之2',hours:'週六 17:00–20:30',phone:'03-988-5373',tip:'建議預約，素別及當日價位請先確認。'}
+      veg:{name:'長春素食名人館（礁溪）',type:'礁溪在地｜宜蘭蔬食手路菜・大型餐廳',desc:'礁溪人返鄉開設的特色蔬食餐廳，以素食演繹宜蘭糕渣、西魯魚翅羹等經典台菜；有主題包廂與大型停車場。適合多人分享料理。',address:'宜蘭縣礁溪鄉礁溪路三段12號',hours:'週六晚餐 17:00–20:30；內用點餐約 19:00 截止',phone:'03-928-1236',price:'抓 NT$500–900／人（多人分食、含服務費估算）',tip:'菜單依份數單點、加收 10% 服務費。建議先訂 18:15～18:30，並請店家協助以每人 1,000 元內搭配菜色。全素／蛋奶／五辛請確認。',source:'https://gotaiwan.net/blog/changchun-veg-jiaoxi/',feature:'2026 年礁溪新店・主題包廂・大型停車場',note:'屬多人分食預算估算，依實際點菜人數及加購品項而異。'}
     },
     sunLunch: {
       time:'週日午餐',
       meat:{name:'石港春帆精緻海鮮餐廳',type:'頭城海鮮套餐',desc:'靠近外澳／烏石港，主打當季海鮮套餐與主菜選擇。',address:'宜蘭縣頭城鎮濱海路一段390號',hours:'週日 11:30–20:00',phone:'03-977-6269',tip:'偏精緻套餐、預算較高；建議事前訂位。'},
-      veg:{name:'來佳素麵館',type:'外澳在地蔬食小店',desc:'外澳海邊的素食麵飯、麻醬麵與家常小菜，看完海很順路。',address:'宜蘭縣頭城鎮濱海路二段16號',hours:'週日 09:00–17:00',phone:'0919-901-709',tip:'店面規模較小，確認當日是否營業。'}
+      veg:{name:'石港春帆精緻海鮮餐廳｜素食套餐',type:'頭城烏石港｜知名大餐廳・個人素食套餐',desc:'在烏石港旁寬敞的在地套餐餐廳，可安排每人一份素食套餐，葷素同行也能同桌用餐。靠外澳、北關，順路且有專屬停車場。',address:'宜蘭縣頭城鎮濱海路一段390號',hours:'週日 11:30–20:00（週二休）',phone:'03-977-6269',price:'素食套餐 NT$680＋10% ≈ NT$748／人',tip:'非純素廚房，請務必提前告知素別及需要分開料理；$680 套餐與 10% 服務費為公開資料，先電話確認最新價格。',source:'https://kafu.tw/yilan-vegetarian-restaurant/',feature:'在地人氣餐廳・空間寬敞・有停車場',note:'海鮮餐廳兼做素食套餐；嚴格全素或避免共用料理設備者應先確認能否接受。'}
     }
   };
   const days = {
@@ -72,20 +72,43 @@
   // 雨天時只調整戶外景點；投票、入住、週日飯店早餐與葷素餐廳保留。
   function getStops(day){
     const base=days[day].stops.map(s=>({...s}));
-    if(state.mode!=='rain')return base;
+    if(state.mode!=='rain')return adjustVegetarianTiming(base,day,false);
     if(day==='sat'){
       base[3]={time:'11:20',kind:'indoor',title:'金車生技｜全室內海洋生態館',duration:'約 60–80 分鐘',description:'室內參觀海洋生物、鯊魚與魟魚展示，園區官方資訊為每日 08:00–17:00；建議依天氣及現場入場規定調整。',place:'marine'};
       base[4].time='12:50';
       base[5]={time:'14:15',kind:'relax',title:'飯店室內休息・等待入住',duration:'約 40–60 分鐘',description:'午後雨勢若持續，直接回飯店。可先詢問寄放行李、在公共空間休息；不預設可提早取得客房。',place:'hotel'};
       base[6].time='15:10';
       base[9]={time:'19:45',kind:'relax',title:'雨夜留在飯店放鬆',duration:'自由安排',description:'取消戶外湯圍溝散步，留在飯店休息；雨若停再依現場情況安排。',place:'hotel'};
-      return base;
+      return adjustVegetarianTiming(base,day,true);
     }
     base[2]={time:'11:25',kind:'indoor',title:'蘭陽博物館｜室內山海生態展',duration:'約 90–110 分鐘',description:'展館透過山、平原、海三大主題介紹宜蘭自然與生態；週日開放 09:00–17:00，現場售票至16:30。',place:'museum'};
     base[3].time='13:20';
     base.splice(4,1);
     base[4]={time:'14:45',kind:'move',title:'風雨中提早返回泰山',duration:'國五車程依路況',description:'取消北關海潮公園與外澳海灘，午餐後返回泰山仁愛路，避免海邊強風與浪襲。',place:'departure'};
-    return base;
+    return adjustVegetarianTiming(base,day,true);
+  }
+  // 精緻套餐需較長用餐時間；素食版的景點與入住時段一併延後，雨天也不壓縮餐期。
+  function adjustVegetarianTiming(stops,day,isRain){
+    if(state.diet!=='veg')return stops;
+    function set(meal,when,duration){const e=stops.find(x=>x.meal===meal);if(e){e.time=when;e.duration=duration;}}
+    if(day==='sat'){
+      set('satLunch',isRain?'12:50':'12:35','預約制約 80–90 分鐘');
+      set('satDinner','18:15','約 70–80 分鐘（預訂制）');
+      if(isRain){
+        if(stops[5]){stops[5].time='14:40';stops[5].duration='約 30–45 分鐘';}
+        if(stops[6])stops[6].time='15:30';
+        if(stops[7])stops[7].time='16:20';
+      }else{
+        if(stops[5]){stops[5].time='14:30';stops[5].duration='約 45–55 分鐘';}
+        if(stops[6])stops[6].time='16:00';
+        if(stops[7]){stops[7].time='16:35';stops[7].duration='約 60–75 分鐘';}
+      }
+    }else{
+      set('sunLunch',isRain?'13:20':'12:40','個人套餐約 70–85 分鐘');
+      if(isRain){if(stops[4])stops[4].time='15:00';}
+      else{if(stops[4])stops[4].time='14:30';if(stops[5])stops[5].time='15:40';}
+    }
+    return stops;
   }
   const icons={move:'↗',vote:'✓',nature:'✿',indoor:'⌂',food:'♨',stay:'⌂',relax:'♨',walk:'☾',fixed:'✓',coast:'≈'};
   const kindLabels={move:'交通',vote:'選舉投票',nature:'自然景觀',indoor:'室內生態',food:'在地美食',stay:'住宿',relax:'溫泉時光',walk:'慢步調',fixed:'已固定',coast:'海岸景觀'};
@@ -117,11 +140,11 @@
   }
   function eventHtml(e,index,stops,day){
     let title=e.title||'',desc=e.description||'',place=e.place?places[e.place]:null;
-    let mealTag='',tip='',tel='';
+    let mealTag='',tip='',tel='',mealPrice='',infoSource='';
     if(e.meal){
       const m=meals[e.meal][state.diet];title=m.name;desc=m.desc;
       mealTag='<span class="diet-pill '+(state.diet==='veg'?'veg':'')+'">'+(state.diet==='veg'?'🌿 素食版':'🍖 葷食版')+'</span>';
-      place={name:m.name,address:m.address,source:null};tip=m.tip;tel=m.phone;
+      place={name:m.name,address:m.address,source:null};tip=m.tip;tel=m.phone;mealPrice=m.price||'';infoSource=m.source||'';
     }
     const here=place&&place.address?place.address:null;
     const prior=index>0?pointAddress(stops[index-1]):null;
@@ -137,6 +160,7 @@
     }
     if(place&&place.source)links.push('<a target="_blank" rel="noopener" href="'+esc(place.source)+'">查看官方資訊 ↗</a>');
     if(tel)links.push('<a href="tel:'+esc(tel.replace(/\D/g,''))+'">☎ 致電詢問 '+esc(tel)+'</a>');
+    if(infoSource)links.push('<a href="'+esc(infoSource)+'" target="_blank" rel="noopener">餐廳菜單／資訊 ↗</a>');
     const note=e.alert||tip||'';
     return '<article class="timeline-event event-'+esc(e.kind)+'">'+
       '<time class="event-time">'+esc(e.time)+'</time>'+
@@ -145,6 +169,7 @@
         '<div class="event-meta"><span class="event-category">'+esc(kindLabels[e.kind]||'旅行')+'</span><span class="event-duration">/ '+esc(e.duration||'')+'</span></div>'+
         '<div class="event-title"><h4>'+esc(title)+'</h4>'+(e.locked?'<span class="locked-pill">✓ '+(e.kind==='vote'?'先投票再出發':'週日早餐已固定')+'</span>':'')+mealTag+'</div>'+
         '<p>'+esc(desc)+'</p>'+
+        (mealPrice?'<div class="meal-price-pill">✦ '+esc(mealPrice)+'</div>':'')+
         (here?'<div class="event-place">📍 '+esc(here)+'</div>':'')+
         (note?'<div class="event-alert"><span>!</span><span>'+esc(note)+'</span></div>':'')+
         (links.length?'<div class="event-links">'+links.join('')+'</div>':'')+
@@ -172,16 +197,26 @@
     const rows=data.map(function(m,i){
       function cell(k){
         const c=m[k],hl=state.diet===k?' active':'';
-        return '<div class="compare-item'+hl+'"><h3>'+esc(c.name)+'</h3><p>'+esc(c.type)+'<br>'+esc(c.hours)+'</p><a href="'+esc(directionsUrl(c.address))+'" target="_blank" rel="noopener">導航前往 ↗</a>　<a href="'+esc(mapUrl(c.address))+'" target="_blank" rel="noopener">查看地點 ↗</a></div>';
+        return '<div class="compare-item'+hl+'"><h3>'+esc(c.name)+'</h3><p>'+esc(c.type)+'<br>'+esc(c.hours)+'</p>'+(c.price?'<div class="meal-cell-price">'+esc(c.price)+'</div>':'')+'<a href="'+esc(directionsUrl(c.address))+'" target="_blank" rel="noopener">導航前往 ↗</a>　<a href="'+esc(mapUrl(c.address))+'" target="_blank" rel="noopener">查看地點 ↗</a>'+(c.source?'　<a href="'+esc(c.source)+'" target="_blank" rel="noopener">店家資訊 ↗</a>':'')+'</div>';
       }
       return '<div class="meal-row"><div class="meal-name">'+names[i][1]+'<span>'+names[i][0]+'</span></div>'+cell('meat')+cell('veg')+'</div>';
     }).join('');
     return '<div class="meal-comparison"><div class="compare-heading"><div>MEAL PLAN</div><div>🍖 葷食選擇</div><div>🌿 素食選擇</div></div>'+rows+'</div>'+
        '<div class="breakfast-fixed"><span>☼</span><div><strong>週日早餐｜長榮鳳凰酒店・桂冠自助餐廳</strong><small>兩種版本皆固定飯店早餐，預計 08:30–09:30 用餐（不另排外部早餐）。</small></div></div>';
   }
+
+  function featuredVegHtml(){
+    const arr=[['satLunch','週六・午餐','禪意無菜單'],['satDinner','週六・晚餐','宜蘭手路菜'],['sunLunch','週日・午餐','頭城素食套餐']];
+    return arr.map(function(item,i){
+      const m=meals[item[0]].veg;
+      const buttons='<div class="veggie-feature-actions"><a href="'+esc(directionsUrl(m.address))+'" target="_blank" rel="noopener">導航前往 ↗</a><a href="tel:'+esc(m.phone.replace(/\D/g,''))+'">☎ 電話訂位</a><a href="'+esc(m.source)+'" target="_blank" rel="noopener">菜單／資訊 ↗</a></div>';
+      return '<article class="veggie-feature-card"><div class="veggie-feature-top"><span class="veggie-feature-index">'+String(i+1).padStart(2,'0')+'</span><span class="veggie-feature-label">'+esc(item[1])+'</span></div><h3>'+esc(m.name)+'</h3><div class="veggie-feature-tag">'+esc(item[2])+'</div><p>'+esc(m.desc)+'</p><strong class="veggie-feature-price">'+esc(m.price)+'</strong><div class="veggie-feature-detail">⌂ '+esc(m.feature)+'<br>◷ '+esc(m.hours)+'<br>⚲ '+esc(m.address)+'</div><p class="veggie-feature-note">'+esc(m.note)+'</p>'+buttons+'</article>';
+    }).join('');
+  }
   function render(){
     document.getElementById('itinerary').innerHTML=(state.day==='all'?['sat','sun']:[state.day]).map(dayHtml).join('');
     document.getElementById('mealComparison').innerHTML=compareHtml();
+    document.getElementById('featuredVegRestaurants').innerHTML=featuredVegHtml();
     document.getElementById('activeModeText').textContent='目前顯示：'+(state.diet==='veg'?'🌿 素食':'🍖 葷食')+'・'+(state.mode==='rain'?'☔ 雨天備案':'☀️ 原定景觀');
     document.querySelectorAll('[data-diet]').forEach(function(b){const v=b.dataset.diet===state.diet;b.classList.toggle('active',v);b.setAttribute('aria-pressed',String(v));});
     document.querySelectorAll('[data-day]').forEach(function(b){const v=b.dataset.day===state.day;b.classList.toggle('active',v);b.setAttribute('aria-pressed',String(v));});
