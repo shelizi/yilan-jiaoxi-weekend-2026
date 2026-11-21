@@ -150,3 +150,26 @@
   .meal-cell-price{font-size:10px}
 }
 @media print{.veggie-feature-actions{display:none!important}.veggie-curation,.veggie-feature-card{break-inside:avoid}}
+
+
+/* Route-audited Nov.28 election-weekend itinerary: extra drive vs safer pace */
+.pace-control{margin-bottom:8px}
+.pace-control button{font-size:11px;line-height:1.45;padding:10px 5px}
+.pace-advice{margin:9px 0 10px;font-size:10px;line-height:1.9;color:#728371}
+.route-audit-note{max-width:1330px;margin:0 auto 23px;border:1px solid #cadbca;background:#f8fbf6;border-radius:17px;padding:24px 26px;display:grid;grid-template-columns:35px 1fr;gap:16px;color:#376349;box-shadow:0 4px 22px rgba(36,77,43,.03)}
+.route-audit-icon{display:grid;place-items:center;width:33px;height:33px;border-radius:50%;background:#dcefe0;color:#337346;font-size:17px;font-weight:900}
+.route-audit-note strong{font-size:14px;color:#315f43}
+.route-audit-note p{font-size:12px;line-height:1.95;margin:9px 0 0;color:#6b806f}
+.route-audit-note p strong{font-size:12px}
+.route-audit-note small{display:block;margin-top:11px;font-size:10px;color:#839187;line-height:1.8}
+.route-audit-note a{color:#34774a;font-weight:800;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:760px){
+ .route-audit-note{padding:18px 16px;grid-template-columns:25px 1fr;gap:10px;margin-bottom:19px}
+ .route-audit-icon{height:25px;width:25px;font-size:13px}
+ .route-audit-note strong{font-size:12px}
+ .route-audit-note p{font-size:11px}
+ .route-audit-note small{font-size:10px}
+ .pace-control button{font-size:11px}
+ .day-banner-right a{max-width:none;flex-basis:calc(50% - 4px);line-height:1.5}
+}
+@media print{.pace-control,.pace-advice{display:none!important}.route-audit-note{break-inside:avoid}}

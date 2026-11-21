@@ -72,7 +72,15 @@
   // 雨天時只調整戶外景點；投票、入住、週日飯店早餐與葷素餐廳保留。
   function getStops(day){
     const base=days[day].stops.map(s=>({...s}));
-    if(state.mode!=='rain')return adjustVegetarianTiming(base,day,false);
+    if(state.mode!=='rain'){
+      // 投票日國五南向易塞：預設只走一個瀑布景點，完整步道另由使用者切換。
+      if(day==='sat'&&state.pace==='relaxed'){
+        base[5]={time:'14:10',kind:'relax',title:'飯店周邊休息・寄放行李',duration:'自由安排約 40–60 分鐘',description:'午餐後直接到飯店周邊，不再往山裡折返走林美石磐。可詢問寄放行李；客房以15:00後入住為準。',place:'hotel'};
+        base[6].time='15:15';
+        base[7].time='16:15';
+      }
+      return adjustVegetarianTiming(base,day,false);
+    }
     if(day==='sat'){
       base[3]={time:'11:20',kind:'indoor',title:'金車生技｜全室內海洋生態館',duration:'約 60–80 分鐘',description:'室內參觀海洋生物、鯊魚與魟魚展示，園區官方資訊為每日 08:00–17:00；建議依天氣及現場入場規定調整。',place:'marine'};
       base[4].time='12:50';
@@ -98,6 +106,10 @@
         if(stops[5]){stops[5].time='14:40';stops[5].duration='約 30–45 分鐘';}
         if(stops[6])stops[6].time='15:30';
         if(stops[7])stops[7].time='16:20';
+      }else if(state.pace==='relaxed'){
+        if(stops[5]){stops[5].time='14:25';stops[5].duration='自由安排約 30–50 分鐘';}
+        if(stops[6])stops[6].time='15:15';
+        if(stops[7]){stops[7].time='16:15';stops[7].duration='約 80–90 分鐘';}
       }else{
         if(stops[5]){stops[5].time='14:30';stops[5].duration='約 45–55 分鐘';}
         if(stops[6])stops[6].time='16:00';
@@ -112,7 +124,7 @@
   }
   const icons={move:'↗',vote:'✓',nature:'✿',indoor:'⌂',food:'♨',stay:'⌂',relax:'♨',walk:'☾',fixed:'✓',coast:'≈'};
   const kindLabels={move:'交通',vote:'選舉投票',nature:'自然景觀',indoor:'室內生態',food:'在地美食',stay:'住宿',relax:'溫泉時光',walk:'慢步調',fixed:'已固定',coast:'海岸景觀'};
-  const state={diet:'meat',day:'all',mode:'sunny'};
+  const state={diet:'meat',day:'all',mode:'sunny',pace:'relaxed'};
   function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
   function mapUrl(q){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q);}
   // Google Maps URLs，分段路線確保手機瀏覽器不超過三個途經點。
@@ -132,7 +144,8 @@
     if(day==='sat'){
       if(phase==='poll')return directionsUrl(places.beitou.address,places.departure.address);
       if(phase==='evening')return directionsUrl(hotel,hotel,state.mode==='rain'?[meals.satDinner[chosen].address]:[meals.satDinner[chosen].address,places.tangweigou.address]);
-      const between=state.mode==='rain'?[places.marine.address,meals.satLunch[chosen].address]:[places.wufengqi.address,meals.satLunch[chosen].address,places.linmei.address];
+      if(phase==='traffic')return directionsUrl(hotel,places.beitou.address,[meals.satLunch[chosen].address]);
+      const between=state.mode==='rain'?[places.marine.address,meals.satLunch[chosen].address]:(state.pace==='relaxed'?[places.wufengqi.address,meals.satLunch[chosen].address]:[places.wufengqi.address,meals.satLunch[chosen].address,places.linmei.address]);
       return directionsUrl(hotel,places.beitou.address,between);
     }
     const between=state.mode==='rain'?[places.museum.address,meals.sunLunch[chosen].address]:[places.waiao.address,meals.sunLunch[chosen].address,places.beiguan.address];
@@ -176,20 +189,20 @@
       '</div></article>';
   }
   function routeRail(day){
-    const labels=day==='sat'?(state.mode==='rain'?['泰山','北投投票','金車海洋館','午餐','飯店','晚餐']:['泰山','北投投票','五峰旗','午餐','林美','飯店','晚餐']):(state.mode==='rain'?['飯店早餐','蘭陽博物館','午餐','泰山']:['飯店早餐','外澳','午餐','北關','泰山']);
-    return '<div class="route-rail"><div class="route-rail-title"><span>ROAD TRIP / '+(state.mode==='rain'?'☔ 雨天備案':'☀️ 原定路線')+'</span><span>地圖會依葷素與天氣版本更新</span></div><div class="route-rail-track">'+
+    const labels=day==='sat'?(state.mode==='rain'?['泰山','北投投票','金車海洋館','午餐','飯店','晚餐']:(state.pace==='relaxed'?['泰山','北投投票','五峰旗','午餐','飯店','晚餐']:['泰山','北投投票','五峰旗','午餐','林美','飯店','晚餐'])):(state.mode==='rain'?['飯店早餐','蘭陽博物館','午餐','泰山']:['飯店早餐','外澳','午餐','北關','泰山']);
+    return '<div class="route-rail"><div class="route-rail-title"><span>ROAD TRIP / '+(state.mode==='rain'?'☔ 雨天備案':(state.pace==='relaxed'?'✿ 少繞路':'☀️ 完整雙步道'))+'</span><span>地圖依葷素・天氣・節奏同步更新</span></div><div class="route-rail-track">'+
       labels.map(function(n,i){return '<div class="route-rail-stop"><span class="route-rail-dot">'+(i+1)+'</span><span>'+esc(n)+'</span></div>';}).join('')+'</div></div>';
   }
   function dayHtml(day){
     const d=days[day],stops=getStops(day),rain=state.mode==='rain';
-    const title=rain?(day==='sat'?'先投票，再進室內慢慢玩。':'雨天看山海，也能很舒服。'):d.title;
+    const title=rain?(day==='sat'?'先投票，再進室內慢慢玩。':'雨天看山海，也能很舒服。'):(day==='sat'&&state.pace==='relaxed'?'先投票，瀑布慢遊再泡湯。':d.title);
     return '<section class="itinerary-day" aria-label="'+(day==='sat'?'週六':'週日')+'行程">'+
       '<div class="day-banner '+(day==='sun'?'sunday':'')+'"><div><small>'+esc(d.label)+(rain?' · RAIN PLAN':'')+'</small><h3>'+esc(title)+'</h3><p>'+esc(d.subtitle)+'</p></div>'+
       '<div class="day-banner-right"><strong>'+esc(d.date)+'</strong>'+
-      (day==='sat'?'<a target="_blank" rel="noopener" href="'+esc(routeUrl(day,'poll'))+'">泰山 → 北投投票 ↗</a><a target="_blank" rel="noopener" href="'+esc(routeUrl(day,'day'))+'">北投 → 礁溪 '+(rain?'雨備':'山線')+' ↗</a><a target="_blank" rel="noopener" href="'+esc(routeUrl(day,'evening'))+'">晚間導航 ↗</a>':'<a target="_blank" rel="noopener" href="'+esc(routeUrl(day))+'">'+(rain?'雨備＋返家':'海線＋返家')+'導航 ↗</a>')+
+      (day==='sat'?'<a target="_blank" rel="noopener" href="'+esc(routeUrl(day,'poll'))+'">泰山 → 北投投票 ↗</a><a target="_blank" rel="noopener" href="'+esc(routeUrl(day,'day'))+'">北投 → 礁溪 '+(rain?'雨備':'山線')+' ↗</a><a target="_blank" rel="noopener" href="'+esc(routeUrl(day,'evening'))+'">晚間導航 ↗</a><a target="_blank" rel="noopener" href="'+esc(routeUrl(day,'traffic'))+'">塞車直達午餐 ↗</a>':'<a target="_blank" rel="noopener" href="'+esc(routeUrl(day))+'">'+(rain?'雨備＋返家':'海線＋返家')+'導航 ↗</a>')+
       '</div></div>'+
       '<div class="timeline">'+stops.map(function(e,i){return eventHtml(e,i,stops,day);}).join('')+'</div>'+routeRail(day)+
-      '<div class="day-endnote">✳ '+esc(rain?d.rainEndnote:d.endnote)+'</div></section>';
+      '<div class="day-endnote">✳ '+esc(rain?d.rainEndnote:(day==='sat'&&state.pace==='relaxed'?'11/28 國5 南向 09:00–16:00 預估易塞。投票後若預估無法準時抵達訂位餐廳，按「塞車直達午餐」略過五峰旗；想加走林美，改選「完整雙步道」，但入住與泡湯可能延後。':d.endnote))+'</div></section>';
   }
   function compareHtml(){
     const data=[meals.satLunch,meals.satDinner,meals.sunLunch];
@@ -217,10 +230,17 @@
     document.getElementById('itinerary').innerHTML=(state.day==='all'?['sat','sun']:[state.day]).map(dayHtml).join('');
     document.getElementById('mealComparison').innerHTML=compareHtml();
     document.getElementById('featuredVegRestaurants').innerHTML=featuredVegHtml();
-    document.getElementById('activeModeText').textContent='目前顯示：'+(state.diet==='veg'?'🌿 素食':'🍖 葷食')+'・'+(state.mode==='rain'?'☔ 雨天備案':'☀️ 原定景觀');
+    document.getElementById('activeModeText').textContent='目前顯示：'+(state.diet==='veg'?'🌿 素食':'🍖 葷食')+'・'+(state.mode==='rain'?'☔ 雨天備案':(state.pace==='relaxed'?'✿ 省路線':'☀️ 完整景點'));
     document.querySelectorAll('[data-diet]').forEach(function(b){const v=b.dataset.diet===state.diet;b.classList.toggle('active',v);b.setAttribute('aria-pressed',String(v));});
     document.querySelectorAll('[data-day]').forEach(function(b){const v=b.dataset.day===state.day;b.classList.toggle('active',v);b.setAttribute('aria-pressed',String(v));});
     document.querySelectorAll('[data-mode]').forEach(function(b){const v=b.dataset.mode===state.mode;b.classList.toggle('active',v);b.setAttribute('aria-pressed',String(v));});
+    document.querySelectorAll('[data-pace]').forEach(function(b){const v=b.dataset.pace===state.pace;b.classList.toggle('active',v);b.setAttribute('aria-pressed',String(v));});
+  }
+  function setPace(mode){
+    if(mode!=='relaxed'&&mode!=='full')return;
+    state.pace=mode;
+    try{localStorage.setItem('yilan_pace',mode);}catch(e){}
+    render();showToast(mode==='relaxed'?'已切為少繞路・保留泡湯時間':'已切為完整雙步道・請注意塞車與訂位時間');
   }
   function setRouteMode(mode,scrollToSchedule){
     if(mode!=='rain'&&mode!=='sunny')return;
@@ -231,7 +251,7 @@
   }
   function textPlan(){
     const label=state.diet==='veg'?'素食':'葷食';
-    const lines=['宜蘭礁溪兩天一夜｜2026/11/28（六）～11/29（日）｜'+label+'｜'+(state.mode==='rain'?'雨天備案':'原定景觀'),
+    const lines=['宜蘭礁溪兩天一夜｜2026/11/28（六）～11/29（日）｜'+label+'｜'+(state.mode==='rain'?'雨天備案':(state.pace==='relaxed'?'少繞路／單步道':'雙步道完整版')),
        '週六先從新北市泰山區仁愛路到北投國小投票（北投區中央北路一段73號），再從北投開往礁溪。',
        '投票時間 08:00–16:00；請核對本人投票通知單與投票教室。',
        '住宿：礁溪長榮鳳凰酒店；週日早餐固定飯店桂冠自助餐廳','',''];
@@ -241,12 +261,12 @@
         const m=e.meal?meals[e.meal][state.diet]:null;
         lines.push(e.time+'  '+(m?m.name:e.title)+(m?'｜'+m.address:''));
       });
-      if(k==='sat'){lines.push('泰山→北投國小投票導航：'+routeUrl(k,'poll'));lines.push('北投國小→礁溪導航：'+routeUrl(k,'day'));lines.push('週六晚間導航：'+routeUrl(k,'evening'));}
+      if(k==='sat'){lines.push('泰山→北投國小投票導航：'+routeUrl(k,'poll'));lines.push('北投國小→礁溪導航：'+routeUrl(k,'day'));lines.push('塞車直達午餐導航：'+routeUrl(k,'traffic'));lines.push('週六晚間導航：'+routeUrl(k,'evening'));}
       else{lines.push('週日返家導航（飯店→泰山）：'+routeUrl(k));}
       lines.push('');
     });
     lines.push('最新天氣可在網頁「天氣預報」區更新（未能即時取得時顯示 2026/11/21 的 AccuWeather 55%／0% 備援）。');
-    lines.push('提醒：林美石磐只開放 0–0.9K；五峰旗以現場開放為準；海邊強風勿靠近礁岩。');
+    lines.push('提醒：11/28 國5 南向 09:00–16:00 易塞，無法準時抵達訂位餐廳時先跳過山區景點。林美石磐只開放 0–0.9K；五峰旗以現場開放為準。');
     lines.push('資料：中選會、中央氣象署、AccuWeather、Open-Meteo、博物館、金車生技與飯店官網。');
     return lines.join('\n');
   }
@@ -313,6 +333,7 @@
   });
   document.getElementById('dayControls').addEventListener('click',function(ev){const b=ev.target.closest('button[data-day]');if(!b)return;state.day=b.dataset.day;render();});
   document.getElementById('routeModeControls').addEventListener('click',function(ev){const b=ev.target.closest('button[data-mode]');if(!b)return;setRouteMode(b.dataset.mode,false);});
+  document.getElementById('paceControls').addEventListener('click',function(ev){const b=ev.target.closest('button[data-pace]');if(!b)return;setPace(b.dataset.pace);});
   document.getElementById('activateRainBtn').addEventListener('click',function(){setRouteMode('rain',true);});
   document.getElementById('resetDryBtn').addEventListener('click',function(){setRouteMode('sunny',true);});
   document.getElementById('refreshWeatherBtn').addEventListener('click',refreshWeather);
@@ -323,7 +344,7 @@
     showToast(ok?'已複製兩天行程與導航連結':'瀏覽器限制複製；可用列印／PDF 保存');
   });
   document.getElementById('printBtn').addEventListener('click',function(){window.print();});
-  try{const saved=localStorage.getItem('yilan_diet');if(saved==='veg'||saved==='meat')state.diet=saved;const mode=localStorage.getItem('yilan_route_mode');if(mode==='rain'||mode==='sunny')state.mode=mode;}catch(e){}
+  try{const saved=localStorage.getItem('yilan_diet');if(saved==='veg'||saved==='meat')state.diet=saved;const mode=localStorage.getItem('yilan_route_mode');if(mode==='rain'||mode==='sunny')state.mode=mode;const pace=localStorage.getItem('yilan_pace');if(pace==='relaxed'||pace==='full')state.pace=pace;}catch(e){}
   render();
   if(typeof fetch==='function')refreshWeather();
 })();
