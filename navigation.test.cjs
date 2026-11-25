@@ -47,6 +47,16 @@ for(const diet of ['meat','veg'])for(const mode of ['sunny','rain'])for(const pa
  assert.match(x.featured,/Mercy 暮曦蔬食創意料理/);
  assert.doesNotMatch(x.featured,/明溱禪悅/);
  assert.match(x.featured,/長春素食名人館/);
+ assert.match(x.compare,/礁溪漁田村/);
+ assert.match(x.compare,/礁溪膳館/);
+ assert.match(x.compare,/約 1\.2 公里/);
+ assert.match(x.compare,/約 840 公尺/);
+ const pairRoutes=routes(x.compare);
+ for(const [meat,veg] of [['宜蘭縣礁溪鄉玉龍路一段498號','宜蘭縣礁溪鄉玉龍路一段55號'],['宜蘭縣礁溪鄉礁溪路三段96號','宜蘭縣礁溪鄉礁溪路三段12號']]){
+  assert.ok(pairRoutes.some(u=>u.searchParams.get('origin')===meat&&u.searchParams.get('destination')===veg),'Meat to vegetarian transfer missing');
+  assert.ok(pairRoutes.some(u=>u.searchParams.get('origin')===veg&&u.searchParams.get('destination')===meat),'Vegetarian to meat transfer missing');
+ }
+ assert.doesNotMatch(h+x.compare,/拾松辦桌小吃|御園料理/);
  assert.doesNotMatch(h+x.featured+x.compare,/春不老驛站|白蓮寺不二齋|冬山午餐/);
  assert.match(h,/18:00[\s\S]*明都大自然素食館｜台北素食合菜/);
  assert.match(h,/19:30[\s\S]*晚餐後返回泰山仁愛路/);
@@ -62,7 +72,7 @@ for(const diet of ['meat','veg'])for(const mode of ['sunny','rain'])for(const pa
  }
  const poll=urls.find(u=>u.searchParams.get('origin')?.includes(TAISHAN)&&u.searchParams.get('destination')?.includes(BEITOU));
  assert.ok(poll,'Taishan → Beitou vote route missing');
- const lunch=diet==='veg'?'宜蘭縣礁溪鄉玉龍路一段55號':'宜蘭縣礁溪鄉奇峰街36號';
+ const lunch=diet==='veg'?'宜蘭縣礁溪鄉玉龍路一段55號':'宜蘭縣礁溪鄉玉龍路一段498號';
  const fromVote=urls.filter(u=>u.searchParams.get('origin')?.includes(BEITOU)&&u.searchParams.get('destination')?.includes('長榮鳳凰酒店')&&u.searchParams.has('waypoints'));
  assert.equal(fromVote.length,2,'Both normal and traffic fallback routes required');
  const stopList=fromVote.map(u=>u.searchParams.get('waypoints').split('|'));
@@ -71,7 +81,7 @@ for(const diet of ['meat','veg'])for(const mode of ['sunny','rain'])for(const pa
  const main=stopList.find(a=>a.length>1);
  assert.equal(main[0],lunch,'Lunch must be the first stop after voting');
  assert.equal(main.length,2,'Only one optional attraction before the hotel');
- assert.match(h,/13:00[\s\S]*(拾松辦桌小吃|Mercy 暮曦蔬食創意料理)/);
+ assert.match(h,/13:00[\s\S]*(礁溪漁田村|Mercy 暮曦蔬食創意料理)/);
  if(mode==='rain'){
   assert.match(h,/14:30[\s\S]*金車生技｜全室內海洋生態館/);
   assert.ok(main[1].includes('淇武蘭路162-13號'));
@@ -93,7 +103,7 @@ for(const diet of ['meat','veg'])for(const mode of ['sunny','rain'])for(const pa
   assert.ok(urls.some(u=>u.searchParams.get('travelmode')==='walking'&&u.searchParams.get('origin')?.includes('長榮鳳凰酒店')&&u.searchParams.get('destination')?.includes('德陽路99之11號')),'Hotel to Tangweigou walking directions missing');
  }
  assert.ok(h.indexOf('晚餐後返回飯店停車')>=0,'Dinner to hotel parking stop missing');
- const dinner=diet==='veg'?'宜蘭縣礁溪鄉礁溪路三段12號':'宜蘭縣礁溪鄉中山路二段172號';
+ const dinner=diet==='veg'?'宜蘭縣礁溪鄉礁溪路三段12號':'宜蘭縣礁溪鄉礁溪路三段96號';
  assert.ok(urls.some(u=>u.searchParams.get('waypoints')===dinner&&u.searchParams.get('origin')?.includes('長榮鳳凰酒店')&&u.searchParams.get('destination')?.includes('長榮鳳凰酒店')),'Saturday dinner round trip must return to the hotel');
  const back=urls.find(u=>u.searchParams.get('origin')?.includes('長榮鳳凰酒店')&&u.searchParams.get('destination')==='台北市士林區重慶北路四段148號');
  assert.ok(back,'Route to Mingdu restaurant missing');
@@ -128,6 +138,8 @@ assert.match(html,/梅花湖/);
 assert.match(html,/三清宮/);
 assert.doesNotMatch(html+script,/冬山午餐|春不老驛站|白蓮寺不二齋|sunLunch/);
 assert.match(html,/18:00明都四人合菜/);
+assert.match(html,/四人同行・葷素餐廳相近/);
+assert.doesNotMatch(html+script,/拾松辦桌小吃|御園料理|奇峰街36號|中山路二段172號/);
 assert.doesNotMatch(script,/明溱禪悅/);
 assert.doesNotMatch(html,/明溱禪悅/);
 console.log('PASS route audit notice, new attractions, pace controls, rainy-day and weather UI');

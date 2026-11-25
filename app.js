@@ -21,34 +21,42 @@
   const meals = {
     satLunch: {
       time:'週六午餐',
-      meat:{name:'拾松辦桌小吃',type:'宜蘭在地辦桌風味',desc:'西魯肉、糕渣、卜肉等經典宜蘭菜；靠近五峰旗一帶，適合中午順遊。',address:'宜蘭縣礁溪鄉奇峰街36號',hours:'11:00–14:00 / 17:00–20:00',phone:'03-988-1136',tip:'假日客多，出發前先確認現場候位。'},
+      meat:{name:'礁溪漁田村',type:'玉田村在地鮮魚定食｜近 Mercy 暮曦蔬食',desc:'新鮮漁獲定食、海鮮鍋物、家常料理；與暮曦同在玉龍路一段。兩家OSRM道路模型約1.2公里，四人若分開用餐，可短程開車接送會合。',address:'宜蘭縣礁溪鄉玉龍路一段498號',hours:'週六 11:30–14:30、17:30–20:30',phone:'03-988-9185',price:'約 NT$400–680／人（依餐點）',tip:'官網標示門口約5–6個停車位；建議預訂13:00並確認最後點餐時間。若需同桌葷素，先電話詢問預訂素食鍋及共用器具。',source:'https://www.yourtiendiner.com/contact'},
       veg:{name:'Mercy 暮曦蔬食創意料理',type:'礁溪創意蔬食｜米披薩、野菇義大利麵、養生鍋物',desc:'精緻創意蔬食，品項包含米披薩、野菇食蔬番茄義大利麵、蒙古養生蔬食鍋物；Google 地圖約 4.9 星、500 則以上評論，適合旅行中安排一餐輕鬆的在地蔬食。',address:'宜蘭縣礁溪鄉玉龍路一段55號',hours:'週六 11:30–20:00（最後點餐約 19:00）',phone:'03-988-8276',price:'約 NT$200–400／人',tip:'週六營業 11:30–20:00，最晚點餐約 19:00；建議先電話確認是否可訂位、當日供餐與素別。',source:'https://www.gomaji.com/store/230002',feature:'約 500 則 Google 評論・創意蔬食・明亮用餐空間',note:'公開資料標示週六營業與約 NT$200–400／人；菜單含焗烤起司，並非全素；店內空間較適合小家庭或三五好友，並非大型宴會型；若需全素、無五辛或確認奶蛋成分，請先電話詢問。'}
     },
     satDinner: {
       time:'週六晚餐',
-      meat:{name:'御園料理',type:'台式海鮮與熱炒',desc:'礁溪在地台菜、海鮮與熱炒，安排在飯店休息後用餐。',address:'宜蘭縣礁溪鄉中山路二段172號',hours:'週六 17:00–22:30（資料平台顯示）',phone:'03-987-4292',tip:'營業時間各平台略有差異，請先電話確認。'},
+      meat:{name:'礁溪膳館',type:'現撈海鮮、日式燒烤及台式熱炒｜近長春',desc:'宜蘭在地漁港海鮮、日式燒烤與熱炒，可小份單點，適合少人分食；與長春同在礁溪路三段，OSRM道路模型相距約840公尺。',address:'宜蘭縣礁溪鄉礁溪路三段96號',hours:'週六 11:30–14:00、16:30–21:00；晚餐最後點餐20:30',phone:'03-988-8033',price:'依單點品項與人數',tip:'官網標示免費停車場、可刷卡。建議18:15預訂實際葷食人數，少人採單點，正式桌菜多為10人份。',source:'https://039888033.com/'},
       veg:{name:'長春素食名人館（礁溪）',type:'礁溪在地｜宜蘭蔬食手路菜・大型餐廳',desc:'礁溪人返鄉開設的特色蔬食餐廳，以素食演繹宜蘭糕渣、西魯魚翅羹等經典台菜；有主題包廂與大型停車場。適合多人分享料理。',address:'宜蘭縣礁溪鄉礁溪路三段12號',hours:'週六晚餐 17:00–20:30；內用點餐約 19:00 截止',phone:'03-928-1236',price:'抓 NT$500–900／人（多人分食、含服務費估算）',tip:'菜單依份數單點、加收 10% 服務費。建議先訂 18:15～18:30，並請店家協助以每人 1,000 元內搭配菜色。全素／蛋奶／五辛請確認。',source:'https://gotaiwan.net/blog/changchun-veg-jiaoxi/',feature:'2026 年礁溪新店・主題包廂・大型停車場',note:'屬多人分食預算估算，依實際點菜人數及加購品項而異。'}
     }
   };
+  const mealPairs={
+    satLunch:{distance:'約 1.2 公里',road:'玉龍路一段',minutes:'道路模型約2分鐘'},
+    satDinner:{distance:'約 840 公尺',road:'礁溪路三段',minutes:'道路模型約2分鐘'}
+  };
+  function mealPairLink(key,from='meat'){
+    const m=meals[key],to=from==='meat'?'veg':'meat';
+    return directionsUrl(m[to].address,m[from].address);
+  }
   const days = {
     sat:{
       title:'投票後先吃午餐，再走龍潭湖、泡溫泉。',
       date:'11 / 28',
       label:'DAY 01 · SATURDAY · 投票日',
       subtitle:'泰山 → 北投國小投票 → 礁溪午餐 → 龍潭湖 → 飯店溫泉',
-      endnote:'午餐優先，避免國5壅塞與餐廳收客截止造成壓力。午餐後至龍潭湖可能略有折返，但不趕用餐；14:30後才吃完就直接回飯店。林美為龍潭湖的替代選項，不安排兩個步道。週六素食晚餐需開車往返長春；預留停車及來回車程。',
+      endnote:'午餐優先，避免國5壅塞與餐廳收客截止造成壓力。午餐後至龍潭湖可能略有折返，但不趕用餐；14:30後才吃完就直接回飯店。林美為龍潭湖的替代選項，不安排兩個步道。週六葷素午餐同在玉龍路一段（約1.2公里），晚餐同在礁溪路三段（約840公尺）。四人分開用餐時預留接送、停車與會合時間。',
       rainEndnote:'先用午餐，再到金車室內海洋生態館，時間不足或雨勢過大直接回飯店；晚餐後回飯店停車，取消戶外湯圍溝散步。',
       stops:[
         {time:'08:30',kind:'move',title:'泰山仁愛路出發｜先到北投國小',duration:'車程約25–35分鐘，另留停車時間',description:'08:30從泰山出發，約09:00抵達北投國小周邊；實際車程、停車與步行以當日狀況為準。',place:'departure'},
         {time:'09:00',kind:'vote',title:'北投國小｜先投票',duration:'預留75–90分鐘含停車、步行、排隊及投票',description:'投票時間08:00–16:00；請核對通知單上的投票所與教室，不必為趕行程縮短投票時間。',place:'beitou',locked:true,alert:'這裡是預定的投票地點，不代表已核實個人投票資格或所屬投票所；以中選會及投票通知單為準。'},
         {time:'10:15',kind:'move',title:'投票後從北投國小開往礁溪',duration:'預計10:15–10:30出發，依投票及車流調整',description:'11/28國5南向09:00–16:00預估易壅塞，先直達餐廳，預留約2至2.5小時含停車。若預估13:15後才到，先電詢餐廳收客時間，避免白跑。',place:'beitou'},
-        {time:'13:00',kind:'food',meal:'satLunch',duration:'約60–75分鐘；抵達時間彈性',alert:'午餐優先。預估13:15後抵達請先電話確認收客及供餐時間；14:30後才吃完則取消景點。'},
+        {time:'13:00',kind:'food',meal:'satLunch',duration:'約60–75分鐘；14:15–14:30預留接送會合',alert:'午餐優先。預估13:15後抵達請先電話確認收客及供餐時間；14:30後才吃完則取消景點。'},
         {time:'14:30',kind:'nature',title:'龍潭湖｜湖畔步道與木棧道',duration:'約40分鐘短遊',description:'午餐後預留移車及停車時間，14:30左右走湖畔精華段，不安排完整環湖。若14:30後才結束午餐或天氣不佳，直接回飯店。',place:'longtan',alert:'湖畔與木棧道遇雨濕滑；依管理站及停車現況調整。'},
         {time:'15:40',kind:'stay',title:'長榮鳳凰酒店｜辦理入住',duration:'預留約30–40分鐘，15:00後可入住',description:'景點結束後回礁溪市區，預留車程、停車、入住及行李整理時間。',place:'hotel'},
         {time:'16:20',kind:'relax',title:'飯店溫泉 SPA｜放鬆一下',duration:'約70分鐘，17:30左右結束',description:'享用泡湯與水療設施；預留換衣、整理及晚餐交通時間。設施開放及泳裝要求以館方為準。',place:'hotel'},
-        {time:'17:40',kind:'move',title:'出發前往晚餐餐廳',duration:'預留35分鐘含移車及停車',description:'葷食御園料理、素食長春素食名人館；長春需開車往返，晚餐後先把車停回飯店。',place:'hotel'},
-        {time:'18:15',kind:'food',meal:'satDinner',duration:'約75–85分鐘；四人合菜'},
-        {time:'19:40',kind:'move',title:'晚餐後返回飯店停車',duration:'預留25分鐘含取車及停車',description:'長春素食名人館到飯店需移車，先回飯店停好車再步行泡腳。若已晚或下雨，直接休息。',place:'hotel'},
+        {time:'17:40',kind:'move',title:'出發前往晚餐餐廳',duration:'預留35分鐘含移車及停車',description:'葷食礁溪膳館、素食長春素食名人館，同一路段約840公尺；可短程接送，晚餐後先把車停回飯店。',place:'hotel'},
+        {time:'18:15',kind:'food',meal:'satDinner',duration:'約75–85分鐘；葷素分開依實際人數點菜'},
+        {time:'19:40',kind:'move',title:'晚餐後返回飯店停車',duration:'預留25分鐘含取車及停車',description:'若葷素分開用餐，先在兩店間接人會合，再回飯店停好車步行泡腳。若已晚或下雨，直接休息。',place:'hotel'},
         {time:'20:05',kind:'walk',title:'湯圍溝溫泉公園｜夜間泡腳散步',duration:'約40–50分鐘',description:'飯店到公園約0.7–0.8公里、步行約10分鐘；不再移車。注意足湯開放時段，時間不足則只散步。',place:'tangweigou',travelMode:'walking'}
       ]
     },
@@ -148,7 +156,11 @@
     if(place&&place.source)links.push('<a target="_blank" rel="noopener" href="'+esc(place.source)+'">查看官方資訊 ↗</a>');
     if(tel)links.push('<a href="tel:'+esc(tel.replace(/\D/g,''))+'">☎ 致電詢問 '+esc(tel)+'</a>');
     if(infoSource)links.push('<a href="'+esc(infoSource)+'" target="_blank" rel="noopener">餐廳菜單／資訊 ↗</a>');
-    const note=e.alert||tip||'';
+    if(e.meal&&mealPairs[e.meal]){
+      const pair=mealPairs[e.meal],other=meals[e.meal][state.diet==='veg'?'meat':'veg'];
+      links.push('<a href="'+esc(mealPairLink(e.meal,state.diet))+'" target="_blank" rel="noopener">兩店接送：'+esc(other.name)+'（'+esc(pair.distance)+'） ↗</a>');
+    }
+    const note=[e.alert,tip].filter(Boolean).join(' ');
     return '<article class="timeline-event event-'+esc(e.kind)+'">'+
       '<time class="event-time">'+esc(e.time)+'</time>'+
       '<div class="timeline-marker"><span class="marker-dot">'+(icons[e.kind]||'✳')+'</span></div>'+
@@ -184,11 +196,12 @@
     const rows=data.map(function(m,i){
       function cell(k){
         const c=m[k],hl=state.diet===k?' active':'';
-        return '<div class="compare-item'+hl+'"><h3>'+esc(c.name)+'</h3><p>'+esc(c.type)+'<br>'+esc(c.hours)+'</p>'+(c.price?'<div class="meal-cell-price">'+esc(c.price)+'</div>':'')+'<a href="'+esc(directionsUrl(c.address))+'" target="_blank" rel="noopener">導航前往 ↗</a>　<a href="'+esc(mapUrl(c.address))+'" target="_blank" rel="noopener">查看地點 ↗</a>'+(c.source?'　<a href="'+esc(c.source)+'" target="_blank" rel="noopener">店家資訊 ↗</a>':'')+'</div>';
+        return '<div class="compare-item'+hl+'"><h3>'+esc(c.name)+'</h3><p>'+esc(c.type)+'<br>'+esc(c.address)+'<br>'+esc(c.hours)+'</p>'+(c.price?'<div class="meal-cell-price">'+esc(c.price)+'</div>':'')+'<a href="'+esc(directionsUrl(c.address))+'" target="_blank" rel="noopener">導航前往 ↗</a>　<a href="'+esc(mapUrl(c.address))+'" target="_blank" rel="noopener">查看地點 ↗</a>'+(c.source?'　<a href="'+esc(c.source)+'" target="_blank" rel="noopener">店家資訊 ↗</a>':'')+'　<a href="tel:'+esc(c.phone.replace(/\D/g,''))+'">☎ 電話訂位</a></div>';
       }
       return '<div class="meal-row"><div class="meal-name">'+names[i][1]+'<span>'+names[i][0]+'</span></div>'+cell('meat')+cell('veg')+'</div>';
     }).join('');
     return '<div class="meal-comparison"><div class="compare-heading"><div>MEAL PLAN</div><div>🍖 葷食選擇</div><div>🌿 素食選擇</div></div>'+rows+'</div>'+
+       Object.keys(mealPairs).map(function(key){const m=meals[key],pair=mealPairs[key];return '<div class="breakfast-fixed"><span>↔</span><div><strong>'+esc(m.time)+'・葷素同路段，'+esc(pair.distance)+'</strong><small>'+esc(pair.road)+'｜'+esc(pair.minutes)+'（非即時路況、不含停車接送；不保證步行路線有完整人行道）。</small><p><a href="'+esc(mealPairLink(key,'meat'))+'" target="_blank" rel="noopener">葷食 → 素食接送 ↗</a>　<a href="'+esc(mealPairLink(key,'veg'))+'" target="_blank" rel="noopener">素食 → 葷食接送 ↗</a></p></div></div>';}).join('')+
        '<div class="breakfast-fixed"><span>☼</span><div><strong>週日早午餐｜長榮鳳凰酒店・桂冠自助餐廳</strong><small>10:00–11:30 用餐；09:30先退房、行李寄放大廳，早午餐結束後再領取；週日不另排午餐。</small></div></div>'+ '<div class="breakfast-fixed"><span>♨</span><div><strong>週日 18:00｜明都大自然素食館</strong><small>中式素食合菜｜台北市士林區重慶北路四段148號｜週日 17:00–21:00；四人座位及合菜價格電詢，尚未訂位。</small><p><a href="'+esc(directionsUrl(places.mingdu.address))+'" target="_blank" rel="noopener">導航前往 ↗</a>　<a href="tel:0228127891">電話訂位 02-2812-7891</a>　<a href="'+esc(places.mingdu.infoSource)+'" target="_blank" rel="noopener">餐廳資訊 ↗</a></p></div></div>';
   }
 
@@ -242,6 +255,7 @@
     lines.push('最新天氣可在網頁「天氣預報」區更新（未能即時取得時顯示 2026/11/21 的 AccuWeather 55%／0% 備援）。');
     lines.push('週六：泰山08:30出發→北投投票→10:15–10:30離開→13:00午餐→14:30'+(state.mode==='rain'?'金車海洋館':state.pace==='full'?'林美（替代龍潭湖）':'龍潭湖')+'（時間不足即取消）→飯店→18:15晚餐→回飯店停車。週日：09:30退房寄放行李→10:00–11:30早午餐→11:30領行李取車→約11:50上路→不另排午餐→'+(state.mode==='rain'?'直接北返台北':'12:40梅花湖→14:00三清宮→15:00北返台北')+'→18:00明都大自然素食館→19:30出發返家，約20:00到泰山。');
     lines.push('提醒：11/28國5南向09:00–16:00易塞；預估13:15後抵達餐廳先電詢。四人同車符合週日國5北向常態15:00–20:00三人以上高乘載門檻，但仍須查當日公告及即時路況。');
+    Object.keys(mealPairs).forEach(function(key){const m=meals[key],pair=mealPairs[key];lines.push(m.time+' 葷素近距離：'+m.meat.name+' ↔ '+m.veg.name+'（'+pair.distance+'，道路模型非即時）');lines.push('葷食→素食接送：'+mealPairLink(key,'meat'));lines.push('素食→葷食接送：'+mealPairLink(key,'veg'));});
     lines.push('資料：中選會、中央氣象署、AccuWeather、Open-Meteo、宜蘭縣政府觀光網、金車生技、高公局（https://www.freeway.gov.tw/Publish.aspx?cnid=183&p=30975）與飯店官網。');
     return lines.join('\n');
   }
