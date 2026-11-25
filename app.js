@@ -21,7 +21,7 @@
     satLunch: {
       time:'週六午餐',
       meat:{name:'拾松辦桌小吃',type:'宜蘭在地辦桌風味',desc:'西魯肉、糕渣、卜肉等經典宜蘭菜；靠近五峰旗一帶，適合中午順遊。',address:'宜蘭縣礁溪鄉奇峰街36號',hours:'11:00–14:00 / 17:00–20:00',phone:'03-988-1136',tip:'假日客多，出發前先確認現場候位。'},
-      veg:{name:'明溱禪悅無菜單養生料理',type:'礁溪全素｜禪風無菜單套餐・50 席／停車',desc:'在地創意全素養生料理，器皿與季節蔬食搭配，適合正式的旅行午餐。採預約制，預留至少 80–90 分鐘慢慢用餐。',address:'宜蘭縣礁溪鄉武暖路121之7號',hours:'週六午餐 11:30–14:30（預約制；週日休）',phone:'0976-339-999',price:'NT$680＋10% ≈ NT$748／人',tip:'推薦選 680 元套餐（含一成約 748 元）；1000 元套餐另加一成會超過預算。請先預約並確認最新菜單、實際午餐時段。',source:'https://vegemap.merit-times.com/restaurant_detail/%E6%98%8E%E6%BA%B1%E7%A6%AA%E6%82%85',feature:'約 50 個座位・有停車位・全素精緻套餐',note:'1000 元套餐若另收一成將超過每人上限。'}
+      veg:{name:'Mercy 暮曦蔬食創意料理',type:'礁溪創意蔬食｜米披薩、野菇義大利麵、養生鍋物',desc:'精緻創意蔬食，品項包含米披薩、野菇食蔬番茄義大利麵、蒙古養生蔬食鍋物；Google 地圖約 4.9 星、500 則以上評論，適合旅行中安排一餐輕鬆的在地蔬食。',address:'宜蘭縣礁溪鄉玉龍路一段55號',hours:'週六 11:30–20:00（最後點餐約 19:00）',phone:'03-988-8276',price:'約 NT$200–400／人',tip:'週六營業 11:30–20:00，最晚點餐約 19:00；建議先電話確認是否可訂位、當日供餐與素別。',source:'https://www.gomaji.com/store/230002',feature:'約 500 則 Google 評論・創意蔬食・明亮用餐空間',note:'公開資料標示週六營業與約 NT$200–400／人；菜單含焗烤起司，並非全素；店內空間較適合小家庭或三五好友，並非大型宴會型；若需全素、無五辛或確認奶蛋成分，請先電話詢問。'}
     },
     satDinner: {
       time:'週六晚餐',
@@ -45,9 +45,9 @@
       stops:[
         {time:'07:20',kind:'move',title:'泰山仁愛路出發｜先到北投國小',duration:'車程依市區路況',description:'從泰山仁愛路出發，先前往北投國小。地圖上的泰山仁愛路沒有門牌號碼，請確認實際定位與停車安排。',place:'departure'},
         {time:'08:00',kind:'vote',title:'北投國小｜先投票',duration:'預留 30–60 分鐘',description:'投票時間 08:00–16:00。北投國小位於臺北市北投區中央北路一段73號；請先核對通知單上的投票所及教室，並留足排隊時間。',place:'beitou',locked:true,alert:'這裡是預定的投票地點，不代表已核實個人投票資格或所屬投票所；請以中選會查詢及通知單為準。'},
-        {time:'08:50',kind:'move',title:'投票後從北投國小開往礁溪',duration:'國五車程彈性預留',description:'完成投票後，從北投國小正式啟程。國5南向可能壅塞，抵達龍潭湖的時間以當日導航為準。',place:'beitou'},
-        {time:'11:20',kind:'nature',title:'龍潭湖｜湖畔步道與木棧道',duration:'短版約 50–60 分鐘',description:'宜蘭五大名湖中面積最大的天然湖泊，三面環山，湖畔有木棧道與環湖景色。這次先走湖畔精華段；若想完整探索湖區與周邊人文景點，官方建議預留2–3小時。',place:'longtan',alert:'湖畔與木棧道雨後濕滑；湖區無明確閉園時間，停車及現場設施依管理站公告。'},
-        {time:'12:35',kind:'food',meal:'satLunch',duration:'約 60–90 分鐘'},
+        {time:'08:30',kind:'move',title:'投票後從北投國小開往礁溪',duration:'投票完成後啟程',description:'預計 08:30 從北投國小正式啟程。若投票排隊較久，依實際完成時間出發，不必為趕行程縮短投票時間；國5南向可能壅塞，抵達龍潭湖的時間以當日導航為準。',place:'beitou'},
+        {time:'11:00',kind:'nature',title:'龍潭湖｜湖畔步道與木棧道',duration:'短版約 50–60 分鐘',description:'宜蘭五大名湖中面積最大的天然湖泊，三面環山，湖畔有木棧道與環湖景色。這次先走湖畔精華段；若想完整探索湖區與周邊人文景點，官方建議預留2–3小時。',place:'longtan',alert:'湖畔與木棧道雨後濕滑；湖區無明確閉園時間，停車及現場設施依管理站公告。'},
+        {time:'12:15',kind:'food',meal:'satLunch',duration:'約 60–75 分鐘'},
         {time:'13:55',kind:'nature',title:'林美石磐步道｜加碼選項',duration:'約 55–65 分鐘',description:'只有選擇「加走林美」且時間充裕才安排；目前僅開放0–0.9公里，原路折返。若投票、國5或午餐延誤，直接略過，保留飯店入住與泡湯。',place:'linmei',alert:'林美石磐步道0.9K後封閉；遇大雨與雷雨請取消步道行程。'},
         {time:'15:25',kind:'stay',title:'長榮鳳凰酒店｜辦理入住',duration:'入住時間 15:00 後',description:'回到礁溪市區辦理入住，放好行李，留時間享受飯店設施。',place:'hotel'},
         {time:'16:15',kind:'relax',title:'飯店溫泉 SPA｜放鬆一下',duration:'約 80–90 分鐘',description:'享用飯店泡湯與水療設施；開放時間、入場方式與泳裝要求以館方為準。',place:'hotel'},
@@ -78,16 +78,16 @@
     if(state.mode!=='rain'){
       // 週六預設少繞路：龍潭湖＋午餐＋飯店；加走林美需另留時間。
       if(day==='sat'&&state.pace==='relaxed'){
-        base[5]={time:'14:10',kind:'relax',title:'回飯店周邊休息・寄放行李',duration:'自由安排約 40–60 分鐘',description:'午餐後直接回飯店，不再加走林美石磐；可詢問寄放行李，客房仍以15:00後入住為準。',place:'hotel'};
+        base[5]={time:'13:55',kind:'relax',title:'回飯店周邊休息・寄放行李',duration:'自由安排約 40–60 分鐘',description:'午餐後直接回飯店，不再加走林美石磐；可詢問寄放行李，客房仍以15:00後入住為準。',place:'hotel'};
         base[6].time='15:15';
         base[7].time='16:15';
       }
       return adjustVegetarianTiming(base,day,false);
     }
     if(day==='sat'){
-      base[3]={time:'11:20',kind:'indoor',title:'金車生技｜全室內海洋生態館',duration:'約 60–80 分鐘',description:'室內參觀海洋生物、鯊魚與魟魚展示，園區官方資訊為每日08:00–17:00；建議依天氣及現場入場規定調整。',place:'marine'};
-      base[4].time='12:50';
-      base[5]={time:'14:15',kind:'relax',title:'飯店室內休息・等待入住',duration:'約 40–60 分鐘',description:'午後雨勢若持續，直接回飯店。可先詢問寄放行李、在公共空間休息；不預設可提早取得客房。',place:'hotel'};
+      base[3]={time:'11:00',kind:'indoor',title:'金車生技｜全室內海洋生態館',duration:'約 60–80 分鐘',description:'室內參觀海洋生物、鯊魚與魟魚展示，園區官方資訊為每日08:00–17:00；建議依天氣及現場入場規定調整。',place:'marine'};
+      base[4].time='12:30';
+      base[5]={time:'14:00',kind:'relax',title:'飯店室內休息・等待入住',duration:'約 40–60 分鐘',description:'午後雨勢若持續，直接回飯店。可先詢問寄放行李、在公共空間休息；不預設可提早取得客房。',place:'hotel'};
       base[6].time='15:10';
       base[9]={time:'19:45',kind:'relax',title:'雨夜留在飯店放鬆',duration:'自由安排',description:'取消戶外湯圍溝散步，留在飯店休息；雨若停再依現場情況安排。',place:'hotel'};
       return adjustVegetarianTiming(base,day,true);
@@ -102,18 +102,18 @@
     if(state.diet!=='veg')return stops;
     function set(meal,when,duration){const e=stops.find(x=>x.meal===meal);if(e){e.time=when;e.duration=duration;}}
     if(day==='sat'){
-      set('satLunch',isRain?'12:50':'12:35','預約制約 80–90 分鐘');
+      set('satLunch',isRain?'12:30':'12:15','約 60–75 分鐘');
       set('satDinner','18:15','約 70–80 分鐘（預訂制）');
       if(isRain){
-        if(stops[5]){stops[5].time='14:40';stops[5].duration='約 30–45 分鐘';}
+        if(stops[5]){stops[5].time='14:00';stops[5].duration='約 30–45 分鐘';}
         if(stops[6])stops[6].time='15:30';
         if(stops[7])stops[7].time='16:20';
       }else if(state.pace==='relaxed'){
-        if(stops[5]){stops[5].time='14:25';stops[5].duration='自由安排約 30–50 分鐘';}
+        if(stops[5]){stops[5].time='13:55';stops[5].duration='自由安排約 30–50 分鐘';}
         if(stops[6])stops[6].time='15:15';
         if(stops[7]){stops[7].time='16:15';stops[7].duration='約 80–90 分鐘';}
       }else{
-        if(stops[5]){stops[5].time='14:30';stops[5].duration='約 55–65 分鐘';}
+        if(stops[5]){stops[5].time='13:40';stops[5].duration='約 55–65 分鐘';}
         if(stops[6])stops[6].time='15:50';
         if(stops[7]){stops[7].time='16:45';stops[7].duration='約 60–70 分鐘';}
       }
@@ -219,7 +219,7 @@
   }
 
   function featuredVegHtml(){
-    const arr=[['satLunch','週六・午餐','禪意無菜單'],['satDinner','週六・晚餐','宜蘭手路菜'],['sunLunch','週日・午餐','冬山素食鍋物']];
+    const arr=[['satLunch','週六・午餐','礁溪創意蔬食'],['satDinner','週六・晚餐','宜蘭手路菜'],['sunLunch','週日・午餐','冬山素食鍋物']];
     return arr.map(function(item,i){
       const m=meals[item[0]].veg;
       const buttons='<div class="veggie-feature-actions"><a href="'+esc(directionsUrl(m.address))+'" target="_blank" rel="noopener">導航前往 ↗</a><a href="tel:'+esc(m.phone.replace(/\D/g,''))+'">☎ 電話訂位</a><a href="'+esc(m.source)+'" target="_blank" rel="noopener">菜單／資訊 ↗</a></div>';
@@ -252,7 +252,7 @@
   function textPlan(){
     const label=state.diet==='veg'?'素食':'葷食';
     const lines=['宜蘭礁溪兩天一夜｜2026/11/28（六）～11/29（日）｜'+label+'｜'+(state.mode==='rain'?'雨天備案':(state.pace==='relaxed'?'少繞路／單步道':'雙步道完整版')),
-       '週六先從新北市泰山區仁愛路到北投國小投票（北投區中央北路一段73號），再從北投開往礁溪。',
+       '週六先從新北市泰山區仁愛路到北投國小投票（北投區中央北路一段73號），預計 08:30 投票後從北投啟程往礁溪。',
        '投票時間 08:00–16:00；請核對本人投票通知單與投票教室。',
        '住宿：礁溪長榮鳳凰酒店；週日早餐固定飯店桂冠自助餐廳','',''];
     ['sat','sun'].forEach(function(k){

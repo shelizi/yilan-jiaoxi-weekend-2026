@@ -31,11 +31,13 @@ for(const diet of ['meat','veg'])for(const mode of ['sunny','rain'])for(const pa
  assert.match(h,/11 \/ 28/);assert.match(h,/11 \/ 29/);
  assert.match(h,/北投國小｜先投票/);assert.match(h,/週日早餐已固定/);
  assert.match(h,/泰山仁愛路/);
+ assert.match(h,/08:30[\s\S]*投票後從北投國小開往礁溪/);
  assert.match(x.active,mode==='rain'?/雨天備案/:pace==='relaxed'?/少繞路/:/加走林美/);
  assert.ok(urls.length>=20,'Per-stop Google Maps directions missing');
  assert.ok(routes(x.compare).length>=3,'Every restaurant needs navigation');
  assert.equal((x.featured.match(/class="veggie-feature-card"/g)||[]).length,3);
- assert.match(x.featured,/明溱禪悅無菜單養生料理/);
+ assert.match(x.featured,/Mercy 暮曦蔬食創意料理/);
+ assert.doesNotMatch(x.featured,/明溱禪悅/);
  assert.match(x.featured,/長春素食名人館/);
  assert.match(x.featured,/白蓮寺不二齋/);
  assert.ok(x.featured.includes('約 NT$200–400／人'));
@@ -49,7 +51,7 @@ for(const diet of ['meat','veg'])for(const mode of ['sunny','rain'])for(const pa
  }
  const poll=urls.find(u=>u.searchParams.get('origin')?.includes(TAISHAN)&&u.searchParams.get('destination')?.includes(BEITOU));
  assert.ok(poll,'Taishan → Beitou vote route missing');
- const lunch=diet==='veg'?'宜蘭縣礁溪鄉武暖路121之7號':'宜蘭縣礁溪鄉奇峰街36號';
+ const lunch=diet==='veg'?'宜蘭縣礁溪鄉玉龍路一段55號':'宜蘭縣礁溪鄉奇峰街36號';
  const fromVote=urls.filter(u=>u.searchParams.get('origin')?.includes(BEITOU)&&u.searchParams.get('destination')?.includes('長榮鳳凰酒店')&&u.searchParams.has('waypoints'));
  assert.equal(fromVote.length,2,'Both normal and traffic fallback routes required');
  const stopList=fromVote.map(u=>u.searchParams.get('waypoints').split('|'));
@@ -103,5 +105,7 @@ assert.match(html,/11\.28/);
 assert.match(html,/龍潭湖/);
 assert.match(html,/梅花湖/);
 assert.match(html,/三清宮/);
+assert.doesNotMatch(script,/明溱禪悅/);
+assert.doesNotMatch(html,/明溱禪悅/);
 console.log('PASS route audit notice, new attractions, pace controls, rainy-day and weather UI');
 console.log('All 8 routing combinations passed.');
