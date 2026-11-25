@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css?v=20261125route6">
-  <script src="./app.js?v=20261126route10" defer></script>
+  <script src="./app.js?v=20261126route11" defer></script>
 </head>
 <body>
   <header class="topbar">
@@ -44,7 +44,7 @@
         <div class="stat"><span class="stat-icon">◷</span><div><small>旅行日期</small><strong>11 / 28 – 29</strong><span>週六先到北投投票</span></div></div>
         <div class="stat"><span class="stat-icon">⌂</span><div><small>入住飯店</small><strong>長榮鳳凰酒店</strong><span>礁溪 · 健康路 77 號</span></div></div>
         <div class="stat"><span class="stat-icon">◈</span><div><small>風格</small><strong>湖景 × 溫泉</strong><span>輕鬆步行＋溫泉</span></div></div>
-        <div class="stat"><span class="stat-icon">☼</span><div><small>週日早午餐</small><strong>10:00–11:30</strong><span>11:00前退房，行李寄放大廳</span></div></div>
+        <div class="stat"><span class="stat-icon">☼</span><div><small>週日早午餐</small><strong>10:00–11:30</strong><span>09:30先退房，行李寄放大廳</span></div></div>
       </div>
     </section>
 
@@ -60,7 +60,7 @@
           <article class="forecast-day" id="forecastSun"><span class="forecast-date">SUNDAY · 11 / 29</span><div class="forecast-top"><span class="forecast-symbol">⛅</span><div><span class="forecast-small">降雨機率</span><strong id="rainSun">0%</strong></div></div><h3 id="weatherSunDesc">局部晴朗</h3><p id="weatherSunTemp">17–24°C</p><div class="forecast-meter"><span id="rainSunBar" style="width:0%"></span></div><div class="forecast-advice">湖邊木棧道與三清宮上坡雨後可能濕滑，請留意雨勢。</div></article>
         </div>
         <div class="weather-source"><span id="weatherStatus" role="status">目前顯示 2026/11/21 AccuWeather 10 日預報備援資料；正在嘗試取得最新預報…</span><div><a href="https://www.accuweather.com/zh/tw/jiaoxi-township/316308/10-day-weather-forecast/316308" target="_blank" rel="noopener">AccuWeather ↗</a><a href="https://www.cwa.gov.tw/V8/C/W/Town/Town.html?TID=1000205" target="_blank" rel="noopener">中央氣象署 ↗</a><a href="https://open-meteo.com/en/docs" target="_blank" rel="noopener">Open-Meteo ↗</a></div></div>
-        <div class="poll-notice"><div class="poll-symbol">🗳</div><div><strong>11/28 週六 08:30 從泰山仁愛路出發，先到北投國小投票。</strong><p>市區車程順暢時約09:00抵達北投，投票預留45–60分鐘，預計09:45–10:00完成後離開北投往宜蘭；若現場排隊較久，依實際完成時間出發，不必為趕行程縮短投票時間。龍潭湖預排12:00、午餐12:45，均依國5即時路況調整；高公局預告11/28國5南向09:00–16:00易壅塞，延誤時優先跳過龍潭湖直達午餐。投票時間08:00–16:00，請核對投票通知單上的投票所與教室。</p></div><div class="poll-links"><a href="https://info.cec.gov.tw/vote2026/" target="_blank" rel="noopener">查投票所 ↗</a><a href="https://www.google.com/maps/search/?api=1&query=%E8%87%BA%E5%8C%97%E5%B8%82%E5%8C%97%E6%8A%95%E5%8D%80%E4%B8%AD%E5%A4%AE%E5%8C%97%E8%B7%AF%E4%B8%80%E6%AE%B573%E8%99%9F" target="_blank" rel="noopener">北投國小地圖 ↗</a></div></div>
+        <div class="poll-notice"><div class="poll-symbol">🗳</div><div><strong>11/28 週六 08:30 從泰山仁愛路出發，先到北投國小投票。</strong><p>約09:00抵達北投國小周邊，停車、步行、排隊及投票預留75–90分鐘，預計10:15–10:30離開。高公局預告11/28國5南向09:00–16:00易塞，先直達午餐，13:00為預估；14:30後才吃完就略過景點。投票時間08:00–16:00，請核對投票通知單上的投票所與教室。</p></div><div class="poll-links"><a href="https://info.cec.gov.tw/vote2026/" target="_blank" rel="noopener">查投票所 ↗</a><a href="https://www.google.com/maps/search/?api=1&query=%E8%87%BA%E5%8C%97%E5%B8%82%E5%8C%97%E6%8A%95%E5%8D%80%E4%B8%AD%E5%A4%AE%E5%8C%97%E8%B7%AF%E4%B8%80%E6%AE%B573%E8%99%9F" target="_blank" rel="noopener">北投國小地圖 ↗</a></div></div>
       </div>
     </section>
 
@@ -75,9 +75,9 @@
       <div class="route-audit-note">
         <div class="route-audit-icon">✓</div>
         <div><strong>已按地理位置重新分成礁溪、冬山兩個景點群組</strong>
-          <p>週六：泰山08:30出發 → 北投國小投票 → 龍潭湖（交通順暢才停留）→ Mercy 暮曦蔬食／礁溪午餐 → 飯店 → 湯圍溝。午餐地址為玉龍路一段55號，Google Maps 導航依實際地址串接；飯店到湯圍溝約0.8公里，晚間建議步行。週日：10:00–11:30飯店早午餐，11:00前退房並將行李寄放大廳，餐後領取再出發；不另排午餐；12:15梅花湖 → 13:40三清宮 → 14:30北返台北 → 18:00明都大自然素食館 → 19:15回泰山。梅花湖到三清宮約2.9公里／7分鐘，兩處同區相鄰，不再繞頭城。</p>
-          <p><strong>週日僅安排早午餐與晚餐：</strong>10:00–11:30飯店早午餐已取代午餐；11:30取行李後直接到梅花湖；台北晚餐暫定18:00明都大自然素食館，葷素兩版本皆相同，依國5車流彈性調整。</p>
-          <p><strong>11/28 國五南向 09:00–16:00 預估易壅塞：</strong>08:30從泰山出發後先投票，預計09:45–10:00離開北投；若排隊或車流延誤，優先略過龍潭湖直達午餐，保留飯店入住與泡湯時間。加走林美僅在交通順暢時選用。<a href="https://www.motc.gov.tw/ch/app/data/view?id=14&amp;module=news&amp;serno=fd7c4f14-8d47-4795-bc5f-d44a804db263" target="_blank" rel="noopener">高公局交通公告 ↗</a></p>
+          <p>週六：泰山08:30出發 → 北投投票（預計10:15–10:30離開）→ 13:00礁溪午餐 → 14:30龍潭湖（或林美替代，時間不足取消）→ 15:40飯店（林美版16:00）→ 18:15晚餐 → 回飯店停車 → 20:05步行湯圍溝。午餐優先可能有小幅折返，換取不趕用餐；晚餐長春需開車往返。週日：09:30退房寄放行李 → 10:00–11:30早午餐 → 11:50左右上路 → 12:40梅花湖 → 14:00三清宮 → 15:00北返台北 → 18:00明都四人合菜 → 19:30返家、約20:00抵達泰山。</p>
+          <p><strong>週日四人同車，符合高乘載：</strong>國5每週日15:00–20:00於蘇澳、羅東、宜蘭、頭城北向入口管制，三人以上（含駕駛及孩童）可通行。保留10:00–11:30早午餐、取消午餐，15:00北返；提前抵達可詢問明都17:30入席，18:00仍為暫定。<a href="https://www.freeway.gov.tw/Publish.aspx?cnid=183&amp;p=30975" target="_blank" rel="noopener">高公局高乘載公告 ↗</a> <a href="https://jiaosi.evergreen-hotels.com/dining-view.jsp?id=3" target="_blank" rel="noopener">飯店餐期 ↗</a></p>
+          <p><strong>11/28 國五南向 09:00–16:00 預估易壅塞：</strong>投票後優先到午餐餐廳，若預估13:15後才到，先電話確認收客。14:30後才用完餐、交通延誤或雨勢大，按「塞車直達午餐」略過景點並回飯店。林美只替代龍潭湖，不安排雙步道。<a href="https://www.freeway.gov.tw/Print.aspx?cnid=195&amp;p=45041" target="_blank" rel="noopener">高公局投票日公告 ↗</a></p>
           <small>道路比較參考 OpenStreetMap／OSRM；部分餐廳以所在道路近似座標估算，不是店門精確導航或即時車流。週日取消冬山餐廳停靠，晚餐使用明都大自然素食館實際地址導航，並提供餐後返回泰山路線；實際車程以當日 Google Maps 為準。<a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">地圖資料授權 ↗</a></small>
         </div>
       </div>
@@ -99,9 +99,9 @@
             <span class="control-label">週六行程節奏 <span>投票日建議少繞路</span></span>
             <div class="segmented pace-control" id="paceControls" role="group" aria-label="週六行程節奏">
               <button type="button" class="active" data-pace="relaxed" aria-pressed="true">✿ 少繞路・輕鬆</button>
-              <button type="button" data-pace="full" aria-pressed="false">⛰ 加走林美步道</button>
+              <button type="button" data-pace="full" aria-pressed="false">⛰ 改走林美步道</button>
             </div>
-            <p class="pace-advice">預設保留龍潭湖＋在地午餐＋飯店泡湯；加走林美會增加步道時間與入住壓力。國五塞車時可按「塞車直達午餐」。</p>
+            <p class="pace-advice">午餐優先，預設龍潭湖短遊；林美為替代選項，非加走雙步道。若午餐14:30後才結束，取消景點保留入住泡湯。國5塞車時使用「塞車直達午餐」。</p>
             <span class="control-label">查看日期</span>
             <div class="day-controls" id="dayControls" role="group" aria-label="日期篩選">
               <button type="button" class="active" data-day="all" aria-pressed="true">兩天全部</button>
@@ -110,7 +110,7 @@
             </div>
             <div class="control-divider"></div>
             <div class="hotel-mini"><div class="hotel-square">♨</div><div><strong>長榮鳳凰酒店・礁溪</strong><small>入住 15:00 / 退房 11:00</small></div></div>
-            <p class="fixed-note"><span>✓</span> 週日 10:00–11:30 飯店早午餐；11:00前退房，行李寄放大廳，用餐後領取。</p>
+            <p class="fixed-note"><span>✓</span> 週日09:30先退房、行李寄放大廳；10:00–11:30飯店早午餐，餐後領取行李。四人同車符合常態高乘載。</p>
             <div class="aside-actions"><button type="button" id="copyBtn">⧉ 複製行程</button><button type="button" id="printBtn">▤ 列印 / PDF</button></div>
           </div>
           <div class="aside-weather"><div class="weather-label">☂ 兩日天氣 <a href="#weather">查看降雨機率 ↗</a></div><p class="weather-sidebar-note">週六龍潭湖、週日梅花湖與三清宮皆為戶外景點；雨勢明顯就切換「雨天備案」，導航也會同步改成早午餐後直接北返台北、晚餐後返家。</p></div>
@@ -127,8 +127,8 @@
     <section class="rain-plan-section" id="rainPlan">
       <div class="section-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span> PLAN B · RAINY DAY</div><h2>下雨，也可以很好玩。</h2><p>大雨時不走瀑布、溪谷步道和礁岩海岸；保留自然生態主題，改逛室內場館與飯店溫泉。選擇雨天版後，時間軸及 Google Maps 路線會一起改。</p></div></div>
       <div class="rain-plan-grid">
-        <article class="rain-card"><div class="rain-card-number">SAT · 11/28</div><h3>山區下雨：室內海洋生態＋溫泉</h3><p><strong>金車生技水產養殖研發中心</strong>（礁溪淇武蘭路 162-13 號）有全室內海洋生態展示，官方公告每天 08:00–17:00 開放。午餐後先到飯店附近避雨，15:00 後入住泡湯，晚間視雨勢省略湯圍溝散步。</p><a href="https://www.kingcarbiotech.com.tw/mk01" target="_blank" rel="noopener">查看金車官方資訊 ↗</a></article>
-        <article class="rain-card"><div class="rain-card-number">SUN · 11/29</div><h3>湖區風雨大：早午餐後直接北返台北</h3><p>10:00–11:30飯店早午餐，11:00前退房並將行李寄放大廳；餐後領取行李再出發。若梅花湖環湖步道濕滑、雷雨或三清宮山坡視線不佳，取消兩個戶外點，11:30領行李後直接北返，台北午後自由活動，18:00明都大自然素食館晚餐，餐後回泰山。</p></article>
+        <article class="rain-card"><div class="rain-card-number">SAT · 11/28</div><h3>山區下雨：室內海洋生態＋溫泉</h3><p>先到礁溪用午餐，再視時間參觀金車生技室內海洋生態館（08:00–17:00）；若14:30後才吃完，直接回飯店。晚餐後回飯店停車休息，不安排戶外泡腳散步。</p><a href="https://www.kingcarbiotech.com.tw/mk01" target="_blank" rel="noopener">查看金車官方資訊 ↗</a></article>
+        <article class="rain-card"><div class="rain-card-number">SUN · 11/29</div><h3>湖區風雨大：早午餐後直接北返台北</h3><p>09:30先退房寄放行李，10:00–11:30飯店早午餐；11:30領取行李、約11:50上路。若梅花湖環湖步道濕滑、雷雨或三清宮山坡視線不佳，取消兩個戶外點，直接北返，台北午後自由活動，18:00明都大自然素食館晚餐，19:30後回泰山。</p></article>
       </div>
       <div class="rain-action"><div><strong>雨天版本不會改動葷食／素食的選擇。</strong><span>兩種餐飲依然可自由切換，週日早午餐維持飯店桂冠自助餐廳；退房後行李寄放大廳。</span></div><div class="rain-buttons"><button type="button" id="activateRainBtn">☔ 使用雨天路線</button><button type="button" id="resetDryBtn">☀️ 回原定路線</button></div></div>
     </section>
@@ -137,7 +137,7 @@
       <div class="section-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span> EAT WELL, TRAVEL WELL</div><h2>同一趟旅行，兩種好味道。</h2><p>素食優先安排宜蘭在地特色與口碑餐廳；週六晚餐保留較大型的聚餐選擇，目標每人 NT$1,000 內。葷食方案保留，週日早午餐固定飯店內用。</p></div></div>
       <div class="veggie-curation"><div class="veggie-curation-heading"><div><span class="veggie-curation-eyebrow">LOCAL VEGETARIAN PICKS · 2026</span><h3>這次素食，吃好一點。</h3><p>礁溪創意蔬食與宜蘭蔬食手路菜；週日回台北吃晚餐。</p></div><div class="veggie-curation-budget"><span>每人目標預算</span><strong>NT$ 1,000 <em>以內</em></strong><small>含服務費估算・實價依店家為準</small></div></div><div class="veggie-feature-grid" id="featuredVegRestaurants"></div></div>
       <div id="mealComparison"></div>
-      <div class="restaurant-footnote"><strong>訂位提醒：</strong>週六素食午餐改為 Mercy 暮曦蔬食創意料理，公開資料標示週六 11:30–20:00、平均約 $200–400／人；店內空間較適合小家庭或三五好友，並非大型宴會型；菜單含焗烤起司，並非全素，若需全素、無五辛或確認奶蛋成分請先詢問。週六晚餐保留長春素食名人館，主題包廂與每日最多接待約 100 位的規模較適合多人聚餐，預算約 $500–900／人估算，建議先訂位。週日不另安排午餐，18:00明都大自然素食館（台北市士林區重慶北路四段148號），週日晚餐17:00–21:00；中式素食合菜，桌菜價格電詢。電話 <a href="tel:0228127891">02-2812-7891</a>；資料標示無專屬停車位，建議先確認停車及訂位。<a href="https://food.suiis.com/main.aspx?id=1213" target="_blank" rel="noopener">餐廳資訊 ↗</a>。以上皆非已完成訂位，請出發前再次確認營業與供餐。</div>
+      <div class="restaurant-footnote"><strong>訂位提醒：</strong>週六素食午餐改為 Mercy 暮曦蔬食創意料理，公開資料標示週六 11:30–20:00、平均約 $200–400／人；店內空間較適合小家庭或三五好友，並非大型宴會型；菜單含焗烤起司，並非全素，若需全素、無五辛或確認奶蛋成分請先詢問。週六晚餐保留長春素食名人館，主題包廂與每日最多接待約 100 位的規模較適合多人聚餐，預算約 $500–900／人估算，建議預訂18:15四人座位，並預留來回開車停車時間。週日不另安排午餐，18:00明都大自然素食館（台北市士林區重慶北路四段148號），週日晚餐17:00–21:00；中式素食合菜，四人合菜價格電詢。電話 <a href="tel:0228127891">02-2812-7891</a>；資料標示無專屬停車位，建議先確認停車及訂位。<a href="https://food.suiis.com/main.aspx?id=1213" target="_blank" rel="noopener">餐廳資訊 ↗</a>。以上皆非已完成訂位，請出發前再次確認營業與供餐。</div>
     </section>
 
     <section class="guide-section" id="guide">
@@ -147,7 +147,7 @@
         <div class="guide-actions"><a href="https://jiaosi.evergreen-hotels.com/" target="_blank" rel="noopener">查看飯店官網 ↗</a><a href="https://www.cwa.gov.tw/V8/C/" target="_blank" rel="noopener">查看中央氣象署 ↗</a></div>
       </div>
       <div class="guide-cards">
-        <article><span class="guide-n">01</span><h3>龍潭湖｜湖畔短遊</h3><p>全年開放、免門票並有停車場；完整深度遊覽官方建議 2–3 小時，本次先走短版湖畔，遇雨則略過。</p><a target="_blank" rel="noopener" href="https://travel.yilan.gov.tw/zh-tw/attraction/104/">縣府景點資訊 ↗</a></article>
+        <article><span class="guide-n">01</span><h3>龍潭湖｜湖畔短遊</h3><p>全年開放、免門票並有停車場；完整深度遊覽官方建議 2–3 小時，本次午餐後短遊湖畔，遇雨則略過。</p><a target="_blank" rel="noopener" href="https://travel.yilan.gov.tw/zh-tw/attraction/104/">縣府景點資訊 ↗</a></article>
         <article><span class="guide-n">02</span><h3>湯圍溝｜夜間免費足湯</h3><p>每日 08:00–12:00、13:00–21:30 開放；每 15 分鐘注水時水溫約 50°C，注水期間不要泡腳。</p><a target="_blank" rel="noopener" href="https://travel.yilan.gov.tw/zh-tw/attraction/92/">縣府景點資訊 ↗</a></article>
         <article><span class="guide-n">03</span><h3>梅花湖與三清宮｜冬山同區</h3><p>梅花湖 09:00–17:30，環湖約 2.2 公里；三清宮每日 05:00–22:00，有停車場。梅花湖到三清宮開車約 7 分鐘。</p><a target="_blank" rel="noopener" href="https://travel.yilan.gov.tw/zh-tw/attraction/392/">梅花湖官方資訊 ↗</a>　<a target="_blank" rel="noopener" href="https://travel.yilan.gov.tw/zh-tw/attraction/432/">三清宮 ↗</a></article>
         <article><span class="guide-n">04</span><h3>雨天備案｜慢一點也很好</h3><p>週六下雨改金車室內海洋館、泡湯；週日早午餐後直接北返台北，晚餐後回泰山。可在行程上方一鍵切換，導航也會同步更換。</p></article>

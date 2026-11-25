@@ -32,94 +32,67 @@
   };
   const days = {
     sat:{
-      title:'投票後先走龍潭湖，再回礁溪泡湯。',
+      title:'投票後先吃午餐，再走龍潭湖、泡溫泉。',
       date:'11 / 28',
       label:'DAY 01 · SATURDAY · 投票日',
-      subtitle:'泰山 → 北投國小投票 → 龍潭湖 → 礁溪午餐 → 飯店溫泉',
-      endnote:'龍潭湖與礁溪市區同屬礁溪生活圈，先短走湖畔、再到附近午餐，最後回飯店入住，不必繞去頭城。短版停留約50–60分鐘；想完整環湖可拉長到90–120分鐘。國5塞車時可直接跳過龍潭湖，按「塞車直達午餐」。',
-      rainEndnote:'雨天跳過龍潭湖湖畔與木棧道，改金車室內海洋生態館；午餐後回飯店休息，15:00後入住與泡湯。晚間湯圍溝視雨勢決定是否前往。',
+      subtitle:'泰山 → 北投國小投票 → 礁溪午餐 → 龍潭湖 → 飯店溫泉',
+      endnote:'午餐優先，避免國5壅塞與餐廳收客截止造成壓力。午餐後至龍潭湖可能略有折返，但不趕用餐；14:30後才吃完就直接回飯店。林美為龍潭湖的替代選項，不安排兩個步道。週六素食晚餐需開車往返長春；預留停車及來回車程。',
+      rainEndnote:'先用午餐，再到金車室內海洋生態館，時間不足或雨勢過大直接回飯店；晚餐後回飯店停車，取消戶外湯圍溝散步。',
       stops:[
-        {time:'08:30',kind:'move',title:'泰山仁愛路出發｜先到北投國小',duration:'車程約 25–35 分鐘，依市區路況',description:'08:30 從泰山仁愛路出發前往北投國小；預估約09:00抵達，實際依當天市區路況調整。泰山仁愛路未提供門牌，請先確認實際上車定位與停車安排。',place:'departure'},
-        {time:'09:00',kind:'vote',title:'北投國小｜先投票',duration:'預留 45–60 分鐘',description:'預估09:00抵達北投國小後投票。投票時間 08:00–16:00；請先核對通知單上的投票所及教室，排隊時間依現場為準，不必為趕行程縮短投票時間。',place:'beitou',locked:true,alert:'這裡是預定的投票地點，不代表已核實個人投票資格或所屬投票所；請以中選會查詢及通知單為準。'},
-        {time:'09:45',kind:'move',title:'投票後從北投國小開往礁溪',duration:'預計09:45–10:00離開，依投票排隊情況調整',description:'預計09:45–10:00完成投票後從北投國小啟程往礁溪；若排隊較久，依實際完成時間出發。11/28 國5南向09:00–16:00預估易壅塞，龍潭湖抵達時間以當日導航為準，交通延誤時優先略過湖區直達午餐。',place:'beitou'},
-        {time:'12:00',kind:'nature',title:'龍潭湖｜湖畔步道與木棧道',duration:'短版約 40–50 分鐘',description:'預留約12:00抵達，實際依北投投票與國5車流調整。宜蘭五大名湖中面積最大的天然湖泊，三面環山；這次只走湖畔精華段，若交通延誤就直接跳過，不壓縮午餐與入住時間。',place:'longtan',alert:'湖畔與木棧道雨後濕滑；湖區無明確閉園時間，停車及現場設施依管理站公告。'},
-        {time:'12:45',kind:'food',meal:'satLunch',duration:'約 60–75 分鐘'},
-        {time:'14:15',kind:'nature',title:'林美石磐步道｜加碼選項',duration:'約 55–65 分鐘',description:'只有選擇「加走林美」且時間充裕才安排；目前僅開放0–0.9公里，原路折返。若投票、國5或午餐延誤，直接略過，保留飯店入住與泡湯。',place:'linmei',alert:'林美石磐步道0.9K後封閉；遇大雨與雷雨請取消步道行程。'},
-        {time:'15:40',kind:'stay',title:'長榮鳳凰酒店｜辦理入住',duration:'入住時間 15:00 後',description:'回到礁溪市區辦理入住，放好行李，留時間享受飯店設施。',place:'hotel'},
-        {time:'16:45',kind:'relax',title:'飯店溫泉 SPA｜放鬆一下',duration:'約 80–90 分鐘',description:'享用飯店泡湯與水療設施；開放時間、入場方式與泳裝要求以館方為準。',place:'hotel'},
-        {time:'18:15',kind:'food',meal:'satDinner',duration:'約 75 分鐘'},
-        {time:'19:45',kind:'walk',title:'湯圍溝溫泉公園｜夜間泡腳散步',duration:'約 40–60 分鐘',description:'飯店到公園約0.8公里，建議步行約10分鐘，不必為了這一站重新移車。泡腳區免費，晚上可散步看礁溪溫泉街；泡腳池注水時水溫可能偏高，留意現場公告。',place:'tangweigou'}
+        {time:'08:30',kind:'move',title:'泰山仁愛路出發｜先到北投國小',duration:'車程約25–35分鐘，另留停車時間',description:'08:30從泰山出發，約09:00抵達北投國小周邊；實際車程、停車與步行以當日狀況為準。',place:'departure'},
+        {time:'09:00',kind:'vote',title:'北投國小｜先投票',duration:'預留75–90分鐘含停車、步行、排隊及投票',description:'投票時間08:00–16:00；請核對通知單上的投票所與教室，不必為趕行程縮短投票時間。',place:'beitou',locked:true,alert:'這裡是預定的投票地點，不代表已核實個人投票資格或所屬投票所；以中選會及投票通知單為準。'},
+        {time:'10:15',kind:'move',title:'投票後從北投國小開往礁溪',duration:'預計10:15–10:30出發，依投票及車流調整',description:'11/28國5南向09:00–16:00預估易壅塞，先直達餐廳，預留約2至2.5小時含停車。若預估13:15後才到，先電詢餐廳收客時間，避免白跑。',place:'beitou'},
+        {time:'13:00',kind:'food',meal:'satLunch',duration:'約60–75分鐘；抵達時間彈性',alert:'午餐優先。預估13:15後抵達請先電話確認收客及供餐時間；14:30後才吃完則取消景點。'},
+        {time:'14:30',kind:'nature',title:'龍潭湖｜湖畔步道與木棧道',duration:'約40分鐘短遊',description:'午餐後預留移車及停車時間，14:30左右走湖畔精華段，不安排完整環湖。若14:30後才結束午餐或天氣不佳，直接回飯店。',place:'longtan',alert:'湖畔與木棧道遇雨濕滑；依管理站及停車現況調整。'},
+        {time:'15:40',kind:'stay',title:'長榮鳳凰酒店｜辦理入住',duration:'預留約30–40分鐘，15:00後可入住',description:'景點結束後回礁溪市區，預留車程、停車、入住及行李整理時間。',place:'hotel'},
+        {time:'16:20',kind:'relax',title:'飯店溫泉 SPA｜放鬆一下',duration:'約70分鐘，17:30左右結束',description:'享用泡湯與水療設施；預留換衣、整理及晚餐交通時間。設施開放及泳裝要求以館方為準。',place:'hotel'},
+        {time:'17:40',kind:'move',title:'出發前往晚餐餐廳',duration:'預留35分鐘含移車及停車',description:'葷食御園料理、素食長春素食名人館；長春需開車往返，晚餐後先把車停回飯店。',place:'hotel'},
+        {time:'18:15',kind:'food',meal:'satDinner',duration:'約75–85分鐘；四人合菜'},
+        {time:'19:40',kind:'move',title:'晚餐後返回飯店停車',duration:'預留25分鐘含取車及停車',description:'長春素食名人館到飯店需移車，先回飯店停好車再步行泡腳。若已晚或下雨，直接休息。',place:'hotel'},
+        {time:'20:05',kind:'walk',title:'湯圍溝溫泉公園｜夜間泡腳散步',duration:'約40–50分鐘',description:'飯店到公園約0.7–0.8公里、步行約10分鐘；不再移車。注意足湯開放時段，時間不足則只散步。',place:'tangweigou',travelMode:'walking'}
       ]
     },
     sun:{
-      title:'早午餐後慢遊冬山，北返台北吃晚餐。',
+      title:'早午餐後慢遊冬山，四人高乘載北返。',
       date:'11 / 29',
-      label:'DAY 02 · SUNDAY',
-      subtitle:'飯店早午餐 → 退房／行李寄放 → 梅花湖 → 三清宮 → 台北晚餐 → 泰山',
-      endnote:'週日10:00–11:30飯店早午餐，不另排午餐；11:00前退房、寄放行李，餐後領取。12:15梅花湖、13:40三清宮，14:30北返台北；18:00明都大自然素食館晚餐，餐後回泰山。晚餐時間依國5及市區路況彈性調整。',
-      rainEndnote:'早午餐、退房與寄放行李照常；大雨取消梅花湖與三清宮，11:30取行李後直接北返台北，下午自由活動，18:00明都大自然素食館晚餐後回泰山。',
+      label:'DAY 02 · SUNDAY · 四人同車',
+      subtitle:'退房／行李寄放 → 飯店早午餐 → 梅花湖 → 三清宮 → 明都晚餐 → 泰山',
+      endnote:'四人同車符合國5週日北向三人以上高乘載資格；常態15:00–20:00於蘇澳、羅東、宜蘭、頭城北向入口管制，仍可能塞車。09:30先退房寄放行李，10:00–11:30早午餐，不另排午餐；15:00北返，晚餐18:00暫定，19:30左右取車返家，約20:00到泰山。時間均為規劃估算，依實際路況與訂位調整。',
+      rainEndnote:'09:30先退房寄放行李、10:00–11:30早午餐照常；11:30領行李、約11:50取車北返，取消冬山戶外景點，下午台北自由活動。四人同車符合常態國5北向高乘載；18:00明都晚餐，19:30後回泰山。',
       stops:[
-        {time:'10:00',kind:'fixed',title:'長榮鳳凰酒店｜桂冠早午餐',duration:'10:00–11:30（11:00前先完成退房）',description:'10:00入席享用飯店桂冠自助早午餐。請先整理好行李，約10:45暫離餐廳辦理退房，11:00前將行李交由大廳／櫃檯寄放，再回餐廳用餐至11:30。素食者請確認調味與蛋奶成分。',place:'hotel',locked:true},
-        {time:'11:00',kind:'stay',title:'辦理退房｜行李寄放大廳',duration:'11:00前完成',description:'退房後將行李寄放飯店大廳／行李櫃檯，不必提著行李逛景點；早午餐結束後再領取。行李寄存依飯店現場服務流程辦理。'},
-        {time:'11:30',kind:'move',title:'領取行李・取車前往冬山',duration:'預留45分鐘含領行李、車程及停車',description:'早午餐結束後回大廳領取寄放行李，再取車直接前往梅花湖，不另安排午餐。',place:'hotel'},
-        {time:'12:15',kind:'nature',title:'梅花湖｜環湖散步與湖心吊橋',duration:'約 70 分鐘',description:'三面環山的天然湖泊，環湖路約2.2公里，可步行或租自行車；湖心小島與吊橋是主要景觀。一般入園免費，停車、租車與遊湖船另計。',place:'meihua',alert:'官方景區開放時間09:00–17:30；遊湖船冬季營運時間可能調整，雨大或風浪時可能停航。'},
-        {time:'13:40',kind:'culture',title:'道教總廟三清宮｜參拜與俯瞰梅花湖',duration:'約 50 分鐘',description:'位在梅花湖旁山腰，可俯瞰湖景與蘭陽平原。由梅花湖開車約7分鐘；也可步行上山約15分鐘，但坡度較陡，這次自駕建議直接開上去並使用廟方停車場。',place:'sanqing',alert:'週日開放05:00–22:00；參拜時尊重廟方動線與安靜規範。'},
-        {time:'14:30',kind:'move',title:'離開冬山｜北返台北',duration:'預留約3.5小時含假日車流緩衝',description:'由三清宮直接北返台北；預計18:00到士林明都用餐；晚餐時間依國5／雪隧及市區路況調整。'},
-        {time:'18:00',kind:'food',title:'明都大自然素食館｜台北素食合菜',duration:'約60–75分鐘，依抵達時間彈性調整',description:'士林傳統中式素食合菜，可單點或多人桌菜；公開資料週日晚餐17:00–21:00，桌菜價格依人數電詢。葷素版本週日晚餐皆安排此處。',place:'mingdu',alert:'尚未訂位。店家資料標示無專屬停車位，建議先電話確認空位、桌菜價格、素別及停車。'},
-        {time:'19:15',kind:'move',title:'晚餐後返回泰山仁愛路',duration:'依即時路況',description:'台北晚餐後返家；從士林重慶北路四段明都大自然素食館返回泰山仁愛路。',place:'departure'}
+        {time:'09:30',kind:'stay',title:'辦理退房｜行李寄放大廳',duration:'預留20–30分鐘，10:00前完成',description:'用餐前先整理行李、辦理退房並寄放大廳／行李櫃檯；飯店退房截止11:00，早午餐期間不必離席。寄存以飯店現場流程為準。',place:'hotel'},
+        {time:'10:00',kind:'fixed',title:'長榮鳳凰酒店｜桂冠早午餐',duration:'10:00–11:30，不另安排午餐',description:'退房及寄放行李後入席，安心享用90分鐘早午餐。素食者請確認調味及蛋奶成分。',place:'hotel',locked:true},
+        {time:'11:30',kind:'move',title:'領取行李・取車前往冬山',duration:'11:30–11:50領行李取車；約12:40到梅花湖',description:'預留20分鐘領行李、電梯與駛出停車場，再預留約50分鐘行車、停車。不要將11:30視為正式上路時間。',place:'hotel'},
+        {time:'12:40',kind:'nature',title:'梅花湖｜環湖散步與湖心吊橋',duration:'12:40–13:40，約60分鐘',description:'環湖約2.2公里，可步行精華段或視現場租協力車、電動車等；拍照、租還車也留時間，不強求完整環湖。',place:'meihua',alert:'官方景區09:00–17:30；雨大、風浪或路面濕滑時取消。'},
+        {time:'14:00',kind:'culture',title:'道教總廟三清宮｜參拜與俯瞰梅花湖',duration:'14:00–14:50，約50分鐘',description:'梅花湖到三清宮約7分鐘車程，另留停車及步行時間；自駕上山使用廟方停車場。',place:'sanqing',alert:'週日開放05:00–22:00；參拜時尊重廟方動線。'},
+        {time:'15:00',kind:'move',title:'離開冬山｜北返台北',duration:'預留至18:00，含車流、停車與步行',description:'四人同車符合國5常態高乘載門檻，毋須趕在15:00以前上匝道；15:00–20:00北向入口可能仍有車流與儀控。若提早抵達士林，可附近休息或詢問提前入席。',alert:'出發前查1968及高公局當日公告；高乘載資格不代表免塞車。'},
+        {time:'18:00',kind:'food',title:'明都大自然素食館｜台北素食合菜',duration:'約90分鐘，18:00–19:30',description:'四人中式素食合菜，可單點或詢問四人合菜搭配；週日晚餐公開資料17:00–21:00。若早到可詢問17:30入席，仍以18:00為暫定。葷素版本週日晚餐皆安排此處。',place:'mingdu',alert:'尚未訂位。請電話確認四人座位、合菜價格、素別及附近停車方式。'},
+        {time:'19:30',kind:'move',title:'晚餐後返回泰山仁愛路',duration:'取車、行車及停車，預估19:50–20:00到家',description:'由士林明都大自然素食館返回泰山；用餐與交通時間視現場而定。',place:'departure'}
       ]
     }
   };
-  // 雨天時只調整戶外景點；週日早午餐、退房與行李寄放流程，以及葷素餐廳皆保留。
   function getStops(day){
     const base=days[day].stops.map(s=>({...s}));
-    if(state.mode!=='rain'){
-      // 週六預設少繞路：龍潭湖＋午餐＋飯店；加走林美需另留時間。
-      if(day==='sat'&&state.pace==='relaxed'){
-        base[5]={time:'14:15',kind:'relax',title:'回飯店周邊休息・寄放行李',duration:'自由安排約 40–60 分鐘',description:'午餐後直接回飯店，不再加走林美石磐；可詢問寄放行李，客房仍以15:00後入住為準。',place:'hotel'};
-        base[6].time='15:15';
-        base[7].time='16:15';
-      }
-      return adjustVegetarianTiming(base,day,false);
-    }
     if(day==='sat'){
-      base[3]={time:'12:00',kind:'indoor',title:'金車生技｜全室內海洋生態館',duration:'約 60–80 分鐘',description:'室內參觀海洋生物、鯊魚與魟魚展示，園區官方資訊為每日08:00–17:00；建議依天氣及現場入場規定調整。',place:'marine'};
-      base[4].time='13:00';
-      base[5]={time:'14:30',kind:'relax',title:'飯店室內休息・等待入住',duration:'約 40–60 分鐘',description:'午後雨勢若持續，直接回飯店。可先詢問寄放行李、在公共空間休息；不預設可提早取得客房。',place:'hotel'};
-      base[6].time='15:30';      base[7].time='16:20';
-      base[9]={time:'19:45',kind:'relax',title:'雨夜留在飯店放鬆',duration:'自由安排',description:'取消戶外湯圍溝散步，留在飯店休息；雨若停再依現場情況安排。',place:'hotel'};
-      return adjustVegetarianTiming(base,day,true);
+      const activity=base.findIndex(s=>s.place==='longtan');
+      if(state.mode==='rain'){
+        base[activity]={time:'14:30',kind:'indoor',title:'金車生技｜全室內海洋生態館',duration:'約45–50分鐘',description:'午餐後再參觀室內海洋生物展示；官方每日08:00–17:00。14:30後才吃完或雨勢過大就略過，直接回飯店。',place:'marine'};
+        base[base.length-1]={time:'20:05',kind:'relax',title:'雨夜留在飯店放鬆',duration:'自由安排',description:'晚餐後回飯店停車，取消戶外散步。',place:'hotel'};
+      }else if(state.pace==='full'){
+        base[activity]={time:'14:30',kind:'nature',title:'林美石磐步道｜替代龍潭湖',duration:'約55分鐘，視路況縮短',description:'只選林美、不再走龍潭湖。現行開放範圍以林業保育署公告為準；時間不足、降雨或步道封閉就取消。',place:'linmei',alert:'請確認開放範圍及路況，不強求走完。'};
+        base.find(s=>s.kind==='stay').time='16:00';
+        const spa=base.find(s=>s.kind==='relax');
+        spa.time='16:40';spa.duration='約50分鐘，17:30左右結束';
+      }
+      return base;
     }
-    // 週日大雨取消冬山景點，早午餐後直接北返，保留台北晚餐。
+    if(state.mode!=='rain')return base;
     return [
       ...base.slice(0,2),
-      {time:'11:30',kind:'move',title:'領取行李・取車直接北返台北',duration:'依即時路況',description:'早午餐後領取寄放行李；大雨取消梅花湖與三清宮，不另排午餐。',place:'hotel'},
-      {time:'14:00',kind:'relax',title:'台北自由活動・室內休息',duration:'抵達後彈性安排',description:'提早回台北避雨，晚餐前自由安排。'},
+      {time:'11:30',kind:'move',title:'領取行李・取車直接北返台北',duration:'約11:50正式上路，依即時路況',description:'早午餐後領取寄放行李；大雨取消梅花湖與三清宮，不另排午餐。',place:'hotel'},
+      {time:'14:30',kind:'relax',title:'台北自由活動・室內休息',duration:'抵達後彈性安排',description:'提早回台北避雨，晚餐前自由活動。'},
       ...base.slice(-2)
     ];
-  }
-  // 精緻套餐需較長用餐時間；素食版的停留時間一併調整。
-  function adjustVegetarianTiming(stops,day,isRain){
-    if(state.diet!=='veg')return stops;
-    function set(meal,when,duration){const e=stops.find(x=>x.meal===meal);if(e){e.time=when;e.duration=duration;}}
-    if(day==='sat'){
-      set('satLunch',isRain?'13:00':'12:45','約 60–75 分鐘');
-      set('satDinner','18:15','約 70–80 分鐘（預訂制）');
-      if(isRain){
-        if(stops[5]){stops[5].time='14:30';stops[5].duration='約 30–45 分鐘';}
-        if(stops[6])stops[6].time='15:30';
-        if(stops[7])stops[7].time='16:20';
-      }else if(state.pace==='relaxed'){
-        if(stops[5]){stops[5].time='14:15';stops[5].duration='自由安排約 30–50 分鐘';}
-        if(stops[6])stops[6].time='15:15';
-        if(stops[7]){stops[7].time='16:15';stops[7].duration='約 80–90 分鐘';}
-      }else{
-        if(stops[5]){stops[5].time='14:15';stops[5].duration='約 55–65 分鐘';}
-        if(stops[6])stops[6].time='15:40';
-        if(stops[7]){stops[7].time='16:45';stops[7].duration='約 60–70 分鐘';}
-      }
-    }
-    return stops;
   }
   const icons={move:'↗',vote:'✓',nature:'✿',culture:'🏯',indoor:'⌂',food:'♨',stay:'⌂',relax:'♨',walk:'☾',fixed:'✓',coast:'≈'};
   const kindLabels={move:'交通',vote:'選舉投票',nature:'自然景觀',culture:'寺廟文化',indoor:'室內生態',food:'在地美食',stay:'住宿',relax:'溫泉時光',walk:'慢步調',fixed:'已固定',coast:'海岸景觀'};
@@ -127,8 +100,8 @@
   function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
   function mapUrl(q){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q);}
   // Google Maps URLs，分段路線確保手機瀏覽器不超過三個途經點。
-  function directionsUrl(destination,origin,waypoints){
-    const p=new URLSearchParams();p.set('api','1');p.set('destination',destination);p.set('travelmode','driving');p.set('dir_action','navigate');
+  function directionsUrl(destination,origin,waypoints,travelMode='driving'){
+    const p=new URLSearchParams();p.set('api','1');p.set('destination',destination);p.set('travelmode',travelMode);p.set('dir_action','navigate');
     if(origin)p.set('origin',origin);
     if(waypoints&&waypoints.length)p.set('waypoints',waypoints.join('|'));
     return 'https://www.google.com/maps/dir/?'+p.toString();
@@ -142,9 +115,10 @@
     const chosen=state.diet;
     if(day==='sat'){
       if(phase==='poll')return directionsUrl(places.beitou.address,places.departure.address);
-      if(phase==='evening')return directionsUrl(hotel,hotel,state.mode==='rain'?[meals.satDinner[chosen].address]:[meals.satDinner[chosen].address,places.tangweigou.address]);
+      if(phase==='evening')return directionsUrl(hotel,hotel,[meals.satDinner[chosen].address]);
+      if(phase==='walk')return directionsUrl(places.tangweigou.address,hotel,[],'walking');
       if(phase==='traffic')return directionsUrl(hotel,places.beitou.address,[meals.satLunch[chosen].address]);
-      const between=state.mode==='rain'?[places.marine.address,meals.satLunch[chosen].address]:(state.pace==='relaxed'?[places.longtan.address,meals.satLunch[chosen].address]:[places.longtan.address,meals.satLunch[chosen].address,places.linmei.address]);
+      const between=[meals.satLunch[chosen].address,state.mode==='rain'?places.marine.address:(state.pace==='relaxed'?places.longtan.address:places.linmei.address)];
       return directionsUrl(hotel,places.beitou.address,between);
     }
     if(phase==='home')return directionsUrl(places.departure.address,places.mingdu.address);
@@ -166,8 +140,8 @@
       if(day==='sat'&&index===0){
         links.push('<a target="_blank" rel="noopener" href="'+esc(mapUrl(here))+'">⌖ 查看泰山出發點 ↗</a>');
       }else{
-        links.push('<a target="_blank" rel="noopener" href="'+esc(directionsUrl(here))+'">🧭 從目前位置導航 ↗</a>');
-        if(prior&&prior!==here)links.push('<a target="_blank" rel="noopener" href="'+esc(directionsUrl(here,prior))+'">↗ 前一站 → 此站路線</a>');
+        links.push('<a target="_blank" rel="noopener" href="'+esc(directionsUrl(here,undefined,undefined,e.travelMode||'driving'))+'">🧭 從目前位置導航 ↗</a>');
+        if(prior&&prior!==here)links.push('<a target="_blank" rel="noopener" href="'+esc(directionsUrl(here,prior,undefined,e.travelMode||'driving'))+'">↗ 前一站 → 此站路線</a>');
         links.push('<a target="_blank" rel="noopener" href="'+esc(mapUrl(here))+'">⌖ 查看地點 ↗</a>');
       }
     }
@@ -189,20 +163,20 @@
       '</div></article>';
   }
   function routeRail(day){
-    const labels=day==='sat'?(state.mode==='rain'?['泰山','北投投票','金車海洋館','午餐','飯店','晚餐']:(state.pace==='relaxed'?['泰山','北投投票','龍潭湖','午餐','飯店','晚餐','湯圍溝']:['泰山','北投投票','龍潭湖','午餐','林美','飯店','晚餐','湯圍溝'])):(state.mode==='rain'?['飯店早午餐','退房／行李寄放','明都素食合菜','泰山']:['飯店早午餐','退房／行李寄放','梅花湖','三清宮','明都素食合菜','泰山']);
-    return '<div class="route-rail"><div class="route-rail-title"><span>ROAD TRIP / '+(state.mode==='rain'?'☔ 雨天備案':(day==='sat'?(state.pace==='relaxed'?'✿ 礁溪湖景慢遊':'☀️ 湖景＋加碼步道'):'✿ 冬山湖景＋三清宮'))+'</span><span>地圖依葷素・天氣・節奏同步更新</span></div><div class="route-rail-track">'+
+    const labels=day==='sat'?['泰山','北投投票','午餐',state.mode==='rain'?'金車海洋館':(state.pace==='relaxed'?'龍潭湖':'林美'),'飯店','晚餐','回飯店',...(state.mode==='rain'?[]:['湯圍溝'])]:(state.mode==='rain'?['退房／行李寄放','飯店早午餐','明都素食合菜','泰山']:['退房／行李寄放','飯店早午餐','梅花湖','三清宮','明都素食合菜','泰山']);
+    return '<div class="route-rail"><div class="route-rail-title"><span>ROAD TRIP / '+(state.mode==='rain'?'☔ 雨天備案':(day==='sat'?(state.pace==='relaxed'?'✿ 礁溪湖景慢遊':'☀️ 林美替代湖景'):'✿ 冬山湖景＋三清宮'))+'</span><span>地圖依葷素・天氣・節奏同步更新</span></div><div class="route-rail-track">'+
       labels.map(function(n,i){return '<div class="route-rail-stop"><span class="route-rail-dot">'+(i+1)+'</span><span>'+esc(n)+'</span></div>';}).join('')+'</div></div>';
   }
   function dayHtml(day){
     const d=days[day],stops=getStops(day),rain=state.mode==='rain';
-    const title=rain?(day==='sat'?'先投票，再進室內慢慢玩。':'早午餐後直接北返，明都素食晚餐。'):(day==='sat'&&state.pace==='relaxed'?'投票後先走龍潭湖，再回礁溪泡湯。':d.title);
+    const title=rain?(day==='sat'?'先投票與午餐，再進室內慢慢玩。':'早午餐後直接北返，明都素食晚餐。'):(day==='sat'&&state.pace==='full'?'午餐後改走林美，再回礁溪泡湯。':d.title);
     return '<section class="itinerary-day" aria-label="'+(day==='sat'?'週六':'週日')+'行程">'+
-      '<div class="day-banner '+(day==='sun'?'sunday':'')+'"><div><small>'+esc(d.label)+(rain?' · RAIN PLAN':'')+'</small><h3>'+esc(title)+'</h3><p>'+esc(day==='sun'&&rain?'飯店早午餐 → 退房／行李寄放 → 直接北返台北 → 台北晚餐 → 泰山':d.subtitle)+'</p></div>'+
+      '<div class="day-banner '+(day==='sun'?'sunday':'')+'"><div><small>'+esc(d.label)+(rain?' · RAIN PLAN':'')+'</small><h3>'+esc(title)+'</h3><p>'+esc(day==='sun'&&rain?'退房／行李寄放 → 飯店早午餐 → 直接北返台北 → 台北晚餐 → 泰山':day==='sat'&&rain?'泰山 → 北投投票 → 午餐 → 金車海洋館 → 飯店':day==='sat'&&state.pace==='full'?'泰山 → 北投投票 → 午餐 → 林美 → 飯店':d.subtitle)+'</p></div>'+
       '<div class="day-banner-right"><strong>'+esc(d.date)+'</strong>'+
-      (day==='sat'?'<a target="_blank" rel="noopener" href="'+esc(routeUrl(day,'poll'))+'">泰山 → 北投投票 ↗</a><a target="_blank" rel="noopener" href="'+esc(routeUrl(day,'day'))+'">北投 → 龍潭湖 → 午餐 → 飯店 ↗</a><a target="_blank" rel="noopener" href="'+esc(routeUrl(day,'evening'))+'">晚間／湯圍溝導航 ↗</a><a target="_blank" rel="noopener" href="'+esc(routeUrl(day,'traffic'))+'">塞車直達午餐 ↗</a>':'<a target="_blank" rel="noopener" href="'+esc(routeUrl(day))+'">'+(rain?'飯店 → 明都':'飯店 → 梅花湖 → 三清宮 → 明都')+'導航 ↗</a><a target="_blank" rel="noopener" href="'+esc(routeUrl(day,'home'))+'">晚餐後返回泰山 ↗</a>')+
+      (day==='sat'?'<a target="_blank" rel="noopener" href="'+esc(routeUrl(day,'poll'))+'">泰山 → 北投投票 ↗</a><a target="_blank" rel="noopener" href="'+esc(routeUrl(day,'day'))+'">北投 → 午餐 → '+(rain?'金車海洋館':state.pace==='full'?'林美':'龍潭湖')+' → 飯店 ↗</a><a target="_blank" rel="noopener" href="'+esc(routeUrl(day,'evening'))+'">晚餐來回開車 ↗</a>'+(!rain?'<a target="_blank" rel="noopener" href="'+esc(routeUrl(day,'walk'))+'">飯店 → 湯圍溝步行 ↗</a>':'')+'<a target="_blank" rel="noopener" href="'+esc(routeUrl(day,'traffic'))+'">塞車直達午餐 ↗</a>':'<a target="_blank" rel="noopener" href="'+esc(routeUrl(day))+'">'+(rain?'飯店 → 明都':'飯店 → 梅花湖 → 三清宮 → 明都')+'導航 ↗</a><a target="_blank" rel="noopener" href="'+esc(routeUrl(day,'home'))+'">晚餐後返回泰山 ↗</a>')+
       '</div></div>'+
       '<div class="timeline">'+stops.map(function(e,i){return eventHtml(e,i,stops,day);}).join('')+'</div>'+routeRail(day)+
-      '<div class="day-endnote">✳ '+esc(rain?d.rainEndnote:(day==='sat'?'11/28 國5 南向 09:00–16:00 預估易塞。若延誤午餐預約，按「塞車直達午餐」略過龍潭湖；選擇「加走林美」會延後入住與泡湯。':d.endnote))+'</div></section>';
+      '<div class="day-endnote">✳ '+esc(rain?d.rainEndnote:d.endnote)+'</div></section>';
   }
   function compareHtml(){
     const data=[meals.satLunch,meals.satDinner];
@@ -215,7 +189,7 @@
       return '<div class="meal-row"><div class="meal-name">'+names[i][1]+'<span>'+names[i][0]+'</span></div>'+cell('meat')+cell('veg')+'</div>';
     }).join('');
     return '<div class="meal-comparison"><div class="compare-heading"><div>MEAL PLAN</div><div>🍖 葷食選擇</div><div>🌿 素食選擇</div></div>'+rows+'</div>'+
-       '<div class="breakfast-fixed"><span>☼</span><div><strong>週日早午餐｜長榮鳳凰酒店・桂冠自助餐廳</strong><small>10:00–11:30 用餐；11:00前辦理退房、行李寄放大廳，早午餐結束後再領取；週日不另排午餐。</small></div></div>'+ '<div class="breakfast-fixed"><span>♨</span><div><strong>週日 18:00｜明都大自然素食館</strong><small>中式素食合菜｜台北市士林區重慶北路四段148號｜週日 17:00–21:00；桌菜價格電詢，尚未訂位。</small><p><a href="'+esc(directionsUrl(places.mingdu.address))+'" target="_blank" rel="noopener">導航前往 ↗</a>　<a href="tel:0228127891">電話訂位 02-2812-7891</a>　<a href="'+esc(places.mingdu.infoSource)+'" target="_blank" rel="noopener">餐廳資訊 ↗</a></p></div></div>';
+       '<div class="breakfast-fixed"><span>☼</span><div><strong>週日早午餐｜長榮鳳凰酒店・桂冠自助餐廳</strong><small>10:00–11:30 用餐；09:30先退房、行李寄放大廳，早午餐結束後再領取；週日不另排午餐。</small></div></div>'+ '<div class="breakfast-fixed"><span>♨</span><div><strong>週日 18:00｜明都大自然素食館</strong><small>中式素食合菜｜台北市士林區重慶北路四段148號｜週日 17:00–21:00；四人座位及合菜價格電詢，尚未訂位。</small><p><a href="'+esc(directionsUrl(places.mingdu.address))+'" target="_blank" rel="noopener">導航前往 ↗</a>　<a href="tel:0228127891">電話訂位 02-2812-7891</a>　<a href="'+esc(places.mingdu.infoSource)+'" target="_blank" rel="noopener">餐廳資訊 ↗</a></p></div></div>';
   }
 
   function featuredVegHtml(){
@@ -230,7 +204,7 @@
     document.getElementById('itinerary').innerHTML=(state.day==='all'?['sat','sun']:[state.day]).map(dayHtml).join('');
     document.getElementById('mealComparison').innerHTML=compareHtml();
     document.getElementById('featuredVegRestaurants').innerHTML=featuredVegHtml();
-    document.getElementById('activeModeText').textContent='目前顯示：'+(state.diet==='veg'?'🌿 素食':'🍖 葷食')+'・'+(state.mode==='rain'?'☔ 雨天備案':(state.pace==='relaxed'?'✿ 少繞路':'☀️ 加走林美'));
+    document.getElementById('activeModeText').textContent='目前顯示：'+(state.diet==='veg'?'🌿 素食':'🍖 葷食')+'・'+(state.mode==='rain'?'☔ 雨天備案':(state.pace==='relaxed'?'✿ 少繞路':'☀️ 改走林美'));
     document.querySelectorAll('[data-diet]').forEach(function(b){const v=b.dataset.diet===state.diet;b.classList.toggle('active',v);b.setAttribute('aria-pressed',String(v));});
     document.querySelectorAll('[data-day]').forEach(function(b){const v=b.dataset.day===state.day;b.classList.toggle('active',v);b.setAttribute('aria-pressed',String(v));});
     document.querySelectorAll('[data-mode]').forEach(function(b){const v=b.dataset.mode===state.mode;b.classList.toggle('active',v);b.setAttribute('aria-pressed',String(v));});
@@ -240,7 +214,7 @@
     if(mode!=='relaxed'&&mode!=='full')return;
     state.pace=mode;
     try{localStorage.setItem('yilan_pace',mode);}catch(e){}
-    render();showToast(mode==='relaxed'?'已切為少繞路・保留泡湯時間':'已切為完整雙步道・請注意塞車與訂位時間');
+    render();showToast(mode==='relaxed'?'已切為少繞路・保留泡湯時間':'已切為林美替代龍潭湖・請注意塞車與訂位時間');
   }
   function setRouteMode(mode,scrollToSchedule){
     if(mode!=='rain'&&mode!=='sunny')return;
@@ -251,24 +225,24 @@
   }
   function textPlan(){
     const label=state.diet==='veg'?'素食':'葷食';
-    const lines=['宜蘭礁溪兩天一夜｜2026/11/28（六）～11/29（日）｜'+label+'｜'+(state.mode==='rain'?'雨天備案':(state.pace==='relaxed'?'少繞路／單步道':'雙步道完整版')),
-       '週六 08:30 從新北市泰山區仁愛路出發，約09:00抵達北投國小投票（北投區中央北路一段73號），預計09:45–10:00投票後離開北投往礁溪。',
+    const lines=['宜蘭礁溪兩天一夜｜2026/11/28（六）～11/29（日）｜'+label+'｜'+(state.mode==='rain'?'雨天備案':(state.pace==='relaxed'?'龍潭湖慢遊':'林美替代路線')),
+       '週六 08:30 從新北市泰山區仁愛路出發，約09:00抵達北投國小投票（北投區中央北路一段73號），預計10:15–10:30投票後離開北投往礁溪。',
        '投票時間 08:00–16:00；請核對本人投票通知單與投票教室。',
-       '住宿：礁溪長榮鳳凰酒店；週日10:00–11:30飯店早午餐，11:00前退房並將行李寄放大廳','',''];
+       '住宿：礁溪長榮鳳凰酒店；週日09:30先退房寄放行李，10:00–11:30飯店早午餐；四人同車','',''];
     ['sat','sun'].forEach(function(k){
-      lines.push(k==='sat'?'【週六・投票後龍潭湖、礁溪溫泉】':'【週日・早午餐、冬山湖景、台北晚餐】');
+      lines.push(k==='sat'?'【週六・投票後午餐、礁溪溫泉】':'【週日・早午餐、冬山湖景、台北晚餐】');
       getStops(k).forEach(function(e){
         const m=e.meal?meals[e.meal][state.diet]:null;
         lines.push(e.time+'  '+(m?m.name:e.title)+(m?'｜'+m.address:''));
       });
-      if(k==='sat'){lines.push('泰山→北投國小投票導航：'+routeUrl(k,'poll'));lines.push('北投國小→礁溪導航：'+routeUrl(k,'day'));lines.push('塞車直達午餐導航：'+routeUrl(k,'traffic'));lines.push('週六晚間導航：'+routeUrl(k,'evening'));}
+      if(k==='sat'){lines.push('泰山→北投國小投票導航：'+routeUrl(k,'poll'));lines.push('北投國小→礁溪導航：'+routeUrl(k,'day'));lines.push('塞車直達午餐導航：'+routeUrl(k,'traffic'));lines.push('週六晚餐開車來回：'+routeUrl(k,'evening'));if(state.mode!=='rain')lines.push('飯店→湯圍溝步行：'+routeUrl(k,'walk'));}
       else{lines.push('週日北返明都大自然素食館：'+routeUrl(k));lines.push('晚餐後回泰山：'+routeUrl(k,'home'));}
       lines.push('');
     });
     lines.push('最新天氣可在網頁「天氣預報」區更新（未能即時取得時顯示 2026/11/21 的 AccuWeather 55%／0% 備援）。');
-    lines.push('週六：泰山08:30出發→北投投票→龍潭湖（交通順暢才停留）→礁溪午餐→飯店→湯圍溝。週日：飯店10:00–11:30早午餐→11:00前退房、行李寄放大廳→11:30領行李出發→不另排午餐→'+(state.mode==='rain'?'直接北返台北':'12:15梅花湖→13:40三清宮→14:30北返台北')+'→18:00明都大自然素食館→19:15回泰山。');
-    lines.push('提醒：11/28 國5 南向 09:00–16:00 易塞；投票排隊或交通延誤時先跳過龍潭湖，並留意拾松午餐14:00收餐時間。梅花湖遇大雨、三清宮上坡濕滑時取消。');
-    lines.push('資料：中選會、中央氣象署、AccuWeather、Open-Meteo、宜蘭縣政府觀光網、金車生技與飯店官網。');
+    lines.push('週六：泰山08:30出發→北投投票→10:15–10:30離開→13:00午餐→14:30'+(state.mode==='rain'?'金車海洋館':state.pace==='full'?'林美（替代龍潭湖）':'龍潭湖')+'（時間不足即取消）→飯店→18:15晚餐→回飯店停車。週日：09:30退房寄放行李→10:00–11:30早午餐→11:30領行李取車→約11:50上路→不另排午餐→'+(state.mode==='rain'?'直接北返台北':'12:40梅花湖→14:00三清宮→15:00北返台北')+'→18:00明都大自然素食館→19:30出發返家，約20:00到泰山。');
+    lines.push('提醒：11/28國5南向09:00–16:00易塞；預估13:15後抵達餐廳先電詢。四人同車符合週日國5北向常態15:00–20:00三人以上高乘載門檻，但仍須查當日公告及即時路況。');
+    lines.push('資料：中選會、中央氣象署、AccuWeather、Open-Meteo、宜蘭縣政府觀光網、金車生技、高公局（https://www.freeway.gov.tw/Publish.aspx?cnid=183&p=30975）與飯店官網。');
     return lines.join('\n');
   }
   let toastTimer;

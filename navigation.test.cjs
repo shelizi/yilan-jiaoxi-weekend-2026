@@ -31,15 +31,16 @@ for(const diet of ['meat','veg'])for(const mode of ['sunny','rain'])for(const pa
  assert.match(h,/11 \/ 28/);assert.match(h,/11 \/ 29/);
  assert.match(h,/北投國小｜先投票/);assert.match(h,/週日早午餐已固定/);
  assert.match(h,/10:00[\s\S]*長榮鳳凰酒店｜桂冠早午餐/);
- assert.match(h,/11:00[\s\S]*辦理退房｜行李寄放大廳/);
+ assert.match(h,/09:30[\s\S]*辦理退房｜行李寄放大廳/);
+ assert.ok(h.indexOf('辦理退房｜行李寄放大廳')<h.indexOf('長榮鳳凰酒店｜桂冠早午餐'),'Checkout must precede brunch');
  assert.match(h,/11:30[\s\S]*領取行李・取車(前往冬山|直接北返台北)/);
  assert.match(x.compare,/10:00–11:30[\s\S]*行李寄放大廳/);
  assert.match(h,/泰山仁愛路/);
  assert.match(h,/08:30[\s\S]*泰山仁愛路出發/);
  assert.match(h,/09:00[\s\S]*北投國小｜先投票/);
- assert.match(h,/09:45[\s\S]*投票後從北投國小開往礁溪/);
+ assert.match(h,/10:15[\s\S]*投票後從北投國小開往礁溪/);
 
- assert.match(x.active,mode==='rain'?/雨天備案/:pace==='relaxed'?/少繞路/:/加走林美/);
+ assert.match(x.active,mode==='rain'?/雨天備案/:pace==='relaxed'?/少繞路/:/改走林美/);
  assert.ok(urls.length>=18,'Per-stop Google Maps directions missing');
  assert.ok(routes(x.compare).length>=3,'Every restaurant needs navigation');
  assert.equal((x.featured.match(/class="veggie-feature-card"/g)||[]).length,2);
@@ -48,13 +49,13 @@ for(const diet of ['meat','veg'])for(const mode of ['sunny','rain'])for(const pa
  assert.match(x.featured,/長春素食名人館/);
  assert.doesNotMatch(h+x.featured+x.compare,/春不老驛站|白蓮寺不二齋|冬山午餐/);
  assert.match(h,/18:00[\s\S]*明都大自然素食館｜台北素食合菜/);
- assert.match(h,/19:15[\s\S]*晚餐後返回泰山仁愛路/);
+ assert.match(h,/19:30[\s\S]*晚餐後返回泰山仁愛路/);
  assert.match(x.compare,/週日 18:00｜明都大自然素食館/);
  assert.ok(x.featured.includes('約 NT$200–400／人'));
  assert.doesNotMatch(h,/石港春帆/);
  for(const url of urls){
   assert.equal(url.searchParams.get('api'),'1');
-  assert.equal(url.searchParams.get('travelmode'),'driving');
+  assert.ok(['driving','walking'].includes(url.searchParams.get('travelmode')));
   assert.equal(url.searchParams.get('dir_action'),'navigate');
   const waypoints=url.searchParams.get('waypoints');
   if(waypoints)assert.ok(waypoints.split('|').length<=3,'Mobile waypoint limit exceeded');
@@ -68,36 +69,32 @@ for(const diet of ['meat','veg'])for(const mode of ['sunny','rain'])for(const pa
  const shortest=stopList.find(a=>a.length===1);
  assert.deepEqual(shortest,[lunch],'Traffic fallback must go directly to lunch');
  const main=stopList.find(a=>a.length>1);
- assert.ok(main.includes(lunch));
+ assert.equal(main[0],lunch,'Lunch must be the first stop after voting');
+ assert.equal(main.length,2,'Only one optional attraction before the hotel');
+ assert.match(h,/13:00[\s\S]*(拾松辦桌小吃|Mercy 暮曦蔬食創意料理)/);
  if(mode==='rain'){
-  assert.match(h,/12:00[\s\S]*金車生技｜全室內海洋生態館/);
-  assert.match(h,/13:00[\s\S]*(拾松辦桌小吃|Mercy 暮曦蔬食創意料理)/);
-  assert.ok(main.some(w=>w.includes('淇武蘭路162-13號')));
-  assert.doesNotMatch(h,/龍潭湖｜湖畔步道/);
-  assert.doesNotMatch(h,/湯圍溝溫泉公園/);
-  assert.match(h,/金車生技｜全室內海洋生態館/);
-  assert.doesNotMatch(h,/梅花湖｜環湖散步/);
-  assert.doesNotMatch(h,/三清宮｜參拜/);
+  assert.match(h,/14:30[\s\S]*金車生技｜全室內海洋生態館/);
+  assert.ok(main[1].includes('淇武蘭路162-13號'));
+  assert.doesNotMatch(h,/龍潭湖｜湖畔步道|林美石磐步道｜替代龍潭湖|湯圍溝溫泉公園｜夜間泡腳散步|梅花湖｜環湖散步|三清宮｜參拜/);
+  assert.ok(!urls.some(u=>u.searchParams.get('travelmode')==='walking'),'Rain plan must not include walking route');
  }else{
-  assert.match(h,/12:00[\s\S]*龍潭湖/);
-  assert.match(h,/12:45[\s\S]*(拾松辦桌小吃|Mercy 暮曦蔬食創意料理)/);
-  assert.ok(main.some(w=>w.includes(LONGTAN)),'Saturday must route via Longtan Lake');
-  assert.match(h,/龍潭湖｜湖畔步道/);
-  assert.match(h,/湯圍溝溫泉公園/);
+  assert.match(h,/湯圍溝溫泉公園｜夜間泡腳散步/);
   assert.match(h,/梅花湖｜環湖散步/);
   assert.match(h,/三清宮｜參拜/);
   if(pace==='relaxed'){
-   assert.equal(main.length,2);
-   assert.doesNotMatch(h,/林美石磐步道｜加碼選項/);
-   assert.match(h,/回飯店周邊休息/);
+   assert.equal(main[1],LONGTAN);
+   assert.match(h,/14:30[\s\S]*龍潭湖｜湖畔步道/);
+   assert.doesNotMatch(h,/林美石磐步道｜替代龍潭湖/);
   }else{
-   assert.equal(main.length,3);
-   assert.ok(main.some(w=>w.includes('林美石磐步道')),'Full pace should include optional Linmei');
-   assert.match(h,/林美石磐步道｜加碼選項/);
+   assert.ok(main[1].includes('林美石磐步道'));
+   assert.match(h,/14:30[\s\S]*林美石磐步道｜替代龍潭湖/);
+   assert.doesNotMatch(h,/龍潭湖｜湖畔步道/);
   }
+  assert.ok(urls.some(u=>u.searchParams.get('travelmode')==='walking'&&u.searchParams.get('origin')?.includes('長榮鳳凰酒店')&&u.searchParams.get('destination')?.includes('德陽路99之11號')),'Hotel to Tangweigou walking directions missing');
  }
+ assert.ok(h.indexOf('晚餐後返回飯店停車')>=0,'Dinner to hotel parking stop missing');
  const dinner=diet==='veg'?'宜蘭縣礁溪鄉礁溪路三段12號':'宜蘭縣礁溪鄉中山路二段172號';
- assert.ok(urls.some(u=>u.searchParams.get('waypoints')?.includes(dinner)),'Saturday dinner route must update');
+ assert.ok(urls.some(u=>u.searchParams.get('waypoints')===dinner&&u.searchParams.get('origin')?.includes('長榮鳳凰酒店')&&u.searchParams.get('destination')?.includes('長榮鳳凰酒店')),'Saturday dinner round trip must return to the hotel');
  const back=urls.find(u=>u.searchParams.get('origin')?.includes('長榮鳳凰酒店')&&u.searchParams.get('destination')==='台北市士林區重慶北路四段148號');
  assert.ok(back,'Route to Mingdu restaurant missing');
  const sunStops=back.searchParams.get('waypoints')?.split('|')||[];
@@ -106,12 +103,12 @@ for(const diet of ['meat','veg'])for(const mode of ['sunny','rain'])for(const pa
  if(mode==='rain'){
   assert.deepEqual(sunStops,[],'Rain plan must return directly to Taipei');
   assert.match(h,/11:30[\s\S]*領取行李・取車直接北返台北/);
-  assert.match(h,/14:00[\s\S]*台北自由活動/);
+  assert.match(h,/14:30[\s\S]*台北自由活動/);
  }else{
   assert.deepEqual(sunStops,[MEIHUA,SANQING],'Sunday route should be Meihua Lake → Sanqing Temple → Taipei');
-  assert.match(h,/12:15[\s\S]*梅花湖｜環湖散步/);
-  assert.match(h,/13:40[\s\S]*道教總廟三清宮/);
-  assert.match(h,/14:30[\s\S]*離開冬山｜北返台北/);
+  assert.match(h,/12:40[\s\S]*梅花湖｜環湖散步/);
+  assert.match(h,/14:00[\s\S]*道教總廟三清宮/);
+  assert.match(h,/15:00[\s\S]*離開冬山｜北返台北/);
  }
  console.log('PASS '+diet+'/'+mode+'/'+pace+' '+urls.length+' Google Maps links; Longtan, Tangweigou, Meihua, Sanqing, lunch, return');
 }
@@ -122,14 +119,15 @@ assert.match(html,/id="routeModeControls"/);
 assert.match(html,/id="rainSat"/);
 assert.match(html,/11\.28/);
 assert.match(html,/08:30 從泰山仁愛路出發/);
-assert.match(html,/週日 10:00–11:30 飯店早午餐/);
-assert.match(html,/11:00前退房，行李寄放大廳/);
+assert.match(html,/10:00–11:30飯店早午餐/);
+assert.match(html,/09:30先退房，行李寄放大廳/);
+assert.match(html,/四人同車，符合高乘載/);
 assert.doesNotMatch(html,/08:30 完成投票後/);
 assert.match(html,/龍潭湖/);
 assert.match(html,/梅花湖/);
 assert.match(html,/三清宮/);
 assert.doesNotMatch(html+script,/冬山午餐|春不老驛站|白蓮寺不二齋|sunLunch/);
-assert.match(html,/18:00明都大自然素食館/);
+assert.match(html,/18:00明都四人合菜/);
 assert.doesNotMatch(script,/明溱禪悅/);
 assert.doesNotMatch(html,/明溱禪悅/);
 console.log('PASS route audit notice, new attractions, pace controls, rainy-day and weather UI');
