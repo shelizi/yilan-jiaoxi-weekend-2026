@@ -59,20 +59,21 @@
       title:'冬山午餐後，慢遊梅花湖與三清宮。',
       date:'11 / 29',
       label:'DAY 02 · SUNDAY',
-      subtitle:'飯店早餐 → 冬山午餐 → 梅花湖 → 三清宮 → 返回泰山',
-      endnote:'週日把梅花湖與三清宮放在同一個冬山區域，午餐先在冬山吃，再一路往湖區與山腰廟宇，不再繞回頭城。梅花湖環湖約2.2公里，短停約50–60分鐘；三清宮可開車上山，停留約45–60分鐘。',
-      rainEndnote:'大雨或雷雨取消梅花湖湖畔與三清宮山坡停留，冬山午餐後直接北返；若只是毛毛雨，依現場路面與風勢決定是否短停。週日飯店早餐維持不變。',
+      subtitle:'飯店早午餐 → 退房／行李寄放 → 冬山午餐 → 梅花湖 → 三清宮 → 返回泰山',
+      endnote:'週日10:00–11:30在長榮鳳凰酒店享用早午餐；11:00前先辦退房，行李寄放大廳，餐後領取再出發。約12:15到冬山午餐，接著13:30梅花湖、14:45三清宮，景點都集中在冬山，不必繞回頭城。梅花湖短停約50–60分鐘；三清宮停留約45–60分鐘。',
+      rainEndnote:'週日早午餐、11:00退房及大廳行李寄放照常；大雨或雷雨取消梅花湖與三清宮，冬山午餐後約13:30直接北返。若只是毛毛雨，依現場路面與風勢決定是否短停。',
       stops:[
-        {time:'08:30',kind:'fixed',title:'長榮鳳凰酒店｜桂冠早餐',duration:'建議 08:30–09:30',description:'已確認使用飯店早餐。桂冠自助餐廳早午餐有08:30–10:00時段；實際入場以訂房專案及飯店安排為準。素食者請確認調味與蛋奶成分。',place:'hotel',locked:true},
-        {time:'10:30',kind:'stay',title:'整理行李・辦理退房',duration:'11:00 前完成',description:'退房後往冬山用午餐，再接梅花湖與三清宮。',place:'hotel'},
-        {time:'11:30',kind:'food',meal:'sunLunch',duration:'約 60–75 分鐘'},
-        {time:'12:45',kind:'nature',title:'梅花湖｜環湖散步與湖心吊橋',duration:'約 50–60 分鐘',description:'三面環山的天然湖泊，環湖路約2.2公里，可步行或租自行車；湖心小島與吊橋是主要景觀。一般入園免費，停車、租車與遊湖船另計。',place:'meihua',alert:'官方景區開放時間09:00–17:30；遊湖船冬季營運時間可能調整，雨大或風浪時可能停航。'},
-        {time:'14:00',kind:'culture',title:'道教總廟三清宮｜參拜與俯瞰梅花湖',duration:'約 45–60 分鐘',description:'位在梅花湖旁山腰，可俯瞰湖景與蘭陽平原。由梅花湖開車約7分鐘；也可步行上山約15分鐘，但坡度較陡，這次自駕建議直接開上去並使用廟方停車場。',place:'sanqing',alert:'週日開放05:00–22:00；參拜時尊重廟方動線與安靜規範。'},
-        {time:'15:00',kind:'move',title:'從三清宮返回泰山仁愛路',duration:'道路模型約 82 分鐘，未含塞車',description:'離開冬山後直接北返泰山；週日午後國5與雪隧車流仍可能變動，出發前以Google Maps／高公局1968即時路況選路。',place:'departure'}
+        {time:'10:00',kind:'fixed',title:'長榮鳳凰酒店｜桂冠早午餐',duration:'10:00–11:30（11:00前先完成退房）',description:'10:00入席享用飯店桂冠自助早午餐。請先整理好行李，約10:45暫離餐廳辦理退房，11:00前將行李交由大廳／櫃檯寄放，再回餐廳用餐至11:30。素食者請確認調味與蛋奶成分。',place:'hotel',locked:true},
+        {time:'11:00',kind:'stay',title:'辦理退房｜行李寄放大廳',duration:'11:00前完成',description:'退房後將行李寄放飯店大廳／行李櫃檯，不必提著行李逛景點；早午餐結束後再領取。行李寄存依飯店現場服務流程辦理。'},
+        {time:'11:30',kind:'move',title:'領取行李・取車前往冬山',duration:'車程約 25–35 分鐘，依路況調整',description:'早午餐結束後回大廳領取寄放行李，再取車前往冬山午餐。'},
+        {time:'12:15',kind:'food',meal:'sunLunch',duration:'約 60–75 分鐘'},
+        {time:'13:30',kind:'nature',title:'梅花湖｜環湖散步與湖心吊橋',duration:'約 50–60 分鐘',description:'三面環山的天然湖泊，環湖路約2.2公里，可步行或租自行車；湖心小島與吊橋是主要景觀。一般入園免費，停車、租車與遊湖船另計。',place:'meihua',alert:'官方景區開放時間09:00–17:30；遊湖船冬季營運時間可能調整，雨大或風浪時可能停航。'},
+        {time:'14:45',kind:'culture',title:'道教總廟三清宮｜參拜與俯瞰梅花湖',duration:'約 45–60 分鐘',description:'位在梅花湖旁山腰，可俯瞰湖景與蘭陽平原。由梅花湖開車約7分鐘；也可步行上山約15分鐘，但坡度較陡，這次自駕建議直接開上去並使用廟方停車場。',place:'sanqing',alert:'週日開放05:00–22:00；參拜時尊重廟方動線與安靜規範。'},
+        {time:'15:45',kind:'move',title:'從三清宮返回泰山仁愛路',duration:'道路模型約 82 分鐘，未含塞車',description:'離開冬山後直接北返泰山；週日午後國5與雪隧車流仍可能變動，出發前以Google Maps／高公局1968即時路況選路。',place:'departure'}
       ]
     }
   };
-  // 雨天時只調整戶外景點；投票、入住、週日飯店早餐與葷素餐廳保留。
+  // 雨天時只調整戶外景點；週日早午餐、退房與行李寄放流程，以及葷素餐廳皆保留。
   function getStops(day){
     const base=days[day].stops.map(s=>({...s}));
     if(state.mode!=='rain'){
@@ -93,8 +94,8 @@
       return adjustVegetarianTiming(base,day,true);
     }
     // 週日大雨時保留冬山午餐，取消湖畔與山坡景點，避免濕滑。
-    base[3]={time:'12:45',kind:'move',title:'雨天取消梅花湖與三清宮，餐後直接北返',duration:'依即時路況返泰山',description:'梅花湖環湖步道、吊橋與三清宮上坡路面遇雨易滑；若大雨或雷雨，冬山午餐後直接回泰山。若僅毛毛雨，可依現場安全狀況短停湖邊。',place:'departure'};
-    base.splice(4,2);
+    base[4]={time:'13:30',kind:'move',title:'雨天取消梅花湖與三清宮，餐後直接北返',duration:'依即時路況返泰山',description:'早午餐、退房與行李寄放流程照常；梅花湖環湖步道、吊橋與三清宮上坡路面遇雨易滑，若大雨或雷雨，冬山午餐後約13:30直接回泰山。若僅毛毛雨，可依現場安全狀況短停湖邊。',place:'departure'};
+    base.splice(5,2);
     return adjustVegetarianTiming(base,day,true);
   }
   // 精緻套餐需較長用餐時間；素食版的停留時間一併調整。
@@ -118,7 +119,7 @@
         if(stops[7]){stops[7].time='16:45';stops[7].duration='約 60–70 分鐘';}
       }
     }else{
-      set('sunLunch','11:30','約 60–75 分鐘');
+      set('sunLunch','12:15','約 60–75 分鐘');
     }
     return stops;
   }
@@ -180,7 +181,7 @@
       '<div class="timeline-marker"><span class="marker-dot">'+(icons[e.kind]||'✳')+'</span></div>'+
       '<div class="event-detail">'+
         '<div class="event-meta"><span class="event-category">'+esc(kindLabels[e.kind]||'旅行')+'</span><span class="event-duration">/ '+esc(e.duration||'')+'</span></div>'+
-        '<div class="event-title"><h4>'+esc(title)+'</h4>'+(e.locked?'<span class="locked-pill">✓ '+(e.kind==='vote'?'先投票再出發':'週日早餐已固定')+'</span>':'')+mealTag+'</div>'+
+        '<div class="event-title"><h4>'+esc(title)+'</h4>'+(e.locked?'<span class="locked-pill">✓ '+(e.kind==='vote'?'先投票再出發':(title.indexOf('早午餐')>=0?'週日早午餐已固定':'週日行程已固定'))+'</span>':'')+mealTag+'</div>'+
         '<p>'+esc(desc)+'</p>'+
         (mealPrice?'<div class="meal-price-pill">✦ '+esc(mealPrice)+'</div>':'')+
         (here?'<div class="event-place">📍 '+esc(here)+'</div>':'')+
@@ -189,7 +190,7 @@
       '</div></article>';
   }
   function routeRail(day){
-    const labels=day==='sat'?(state.mode==='rain'?['泰山','北投投票','金車海洋館','午餐','飯店','晚餐']:(state.pace==='relaxed'?['泰山','北投投票','龍潭湖','午餐','飯店','晚餐','湯圍溝']:['泰山','北投投票','龍潭湖','午餐','林美','飯店','晚餐','湯圍溝'])):(state.mode==='rain'?['飯店早餐','冬山午餐','雨天取消湖景','泰山']:['飯店早餐','冬山午餐','梅花湖','三清宮','泰山']);
+    const labels=day==='sat'?(state.mode==='rain'?['泰山','北投投票','金車海洋館','午餐','飯店','晚餐']:(state.pace==='relaxed'?['泰山','北投投票','龍潭湖','午餐','飯店','晚餐','湯圍溝']:['泰山','北投投票','龍潭湖','午餐','林美','飯店','晚餐','湯圍溝'])):(state.mode==='rain'?['飯店早午餐','退房／行李寄放','冬山午餐','雨天取消湖景','泰山']:['飯店早午餐','退房／行李寄放','冬山午餐','梅花湖','三清宮','泰山']);
     return '<div class="route-rail"><div class="route-rail-title"><span>ROAD TRIP / '+(state.mode==='rain'?'☔ 雨天備案':(day==='sat'?(state.pace==='relaxed'?'✿ 礁溪湖景慢遊':'☀️ 湖景＋加碼步道'):'✿ 冬山湖景＋三清宮'))+'</span><span>地圖依葷素・天氣・節奏同步更新</span></div><div class="route-rail-track">'+
       labels.map(function(n,i){return '<div class="route-rail-stop"><span class="route-rail-dot">'+(i+1)+'</span><span>'+esc(n)+'</span></div>';}).join('')+'</div></div>';
   }
@@ -215,7 +216,7 @@
       return '<div class="meal-row"><div class="meal-name">'+names[i][1]+'<span>'+names[i][0]+'</span></div>'+cell('meat')+cell('veg')+'</div>';
     }).join('');
     return '<div class="meal-comparison"><div class="compare-heading"><div>MEAL PLAN</div><div>🍖 葷食選擇</div><div>🌿 素食選擇</div></div>'+rows+'</div>'+
-       '<div class="breakfast-fixed"><span>☼</span><div><strong>週日早餐｜長榮鳳凰酒店・桂冠自助餐廳</strong><small>兩種版本皆固定飯店早餐，預計 08:30–09:30 用餐（不另排外部早餐）。</small></div></div>';
+       '<div class="breakfast-fixed"><span>☼</span><div><strong>週日早午餐｜長榮鳳凰酒店・桂冠自助餐廳</strong><small>10:00–11:30 用餐；11:00前辦理退房、行李寄放大廳，早午餐結束後再領取。</small></div></div>';
   }
 
   function featuredVegHtml(){
@@ -254,7 +255,7 @@
     const lines=['宜蘭礁溪兩天一夜｜2026/11/28（六）～11/29（日）｜'+label+'｜'+(state.mode==='rain'?'雨天備案':(state.pace==='relaxed'?'少繞路／單步道':'雙步道完整版')),
        '週六 08:30 從新北市泰山區仁愛路出發，約09:00抵達北投國小投票（北投區中央北路一段73號），預計09:45–10:00投票後離開北投往礁溪。',
        '投票時間 08:00–16:00；請核對本人投票通知單與投票教室。',
-       '住宿：礁溪長榮鳳凰酒店；週日早餐固定飯店桂冠自助餐廳','',''];
+       '住宿：礁溪長榮鳳凰酒店；週日10:00–11:30飯店早午餐，11:00前退房並將行李寄放大廳','',''];
     ['sat','sun'].forEach(function(k){
       lines.push(k==='sat'?'【週六・投票後龍潭湖、礁溪溫泉】':'【週日・冬山午餐、梅花湖與三清宮】');
       getStops(k).forEach(function(e){
@@ -266,7 +267,7 @@
       lines.push('');
     });
     lines.push('最新天氣可在網頁「天氣預報」區更新（未能即時取得時顯示 2026/11/21 的 AccuWeather 55%／0% 備援）。');
-    lines.push('週六：泰山08:30出發→北投投票→龍潭湖（交通順暢才停留）→礁溪午餐→飯店→湯圍溝。週日：飯店早餐→冬山午餐→梅花湖→三清宮→泰山。');
+    lines.push('週六：泰山08:30出發→北投投票→龍潭湖（交通順暢才停留）→礁溪午餐→飯店→湯圍溝。週日：飯店10:00–11:30早午餐→11:00前退房、行李寄放大廳→11:30領行李出發→12:15冬山午餐→13:30梅花湖→14:45三清宮→15:45北返。');
     lines.push('提醒：11/28 國5 南向 09:00–16:00 易塞；投票排隊或交通延誤時先跳過龍潭湖，並留意拾松午餐14:00收餐時間。梅花湖遇大雨、三清宮上坡濕滑時取消。');
     lines.push('資料：中選會、中央氣象署、AccuWeather、Open-Meteo、宜蘭縣政府觀光網、金車生技與飯店官網。');
     return lines.join('\n');

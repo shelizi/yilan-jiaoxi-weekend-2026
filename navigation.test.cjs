@@ -29,7 +29,12 @@ function routes(h){
 for(const diet of ['meat','veg'])for(const mode of ['sunny','rain'])for(const pace of ['relaxed','full']){
  const x=render(diet,mode,pace),h=x.itinerary,urls=routes(h);
  assert.match(h,/11 \/ 28/);assert.match(h,/11 \/ 29/);
- assert.match(h,/北投國小｜先投票/);assert.match(h,/週日早餐已固定/);
+ assert.match(h,/北投國小｜先投票/);assert.match(h,/週日早午餐已固定/);
+ assert.match(h,/10:00[\s\S]*長榮鳳凰酒店｜桂冠早午餐/);
+ assert.match(h,/11:00[\s\S]*辦理退房｜行李寄放大廳/);
+ assert.match(h,/11:30[\s\S]*領取行李・取車前往冬山/);
+ assert.match(h,/12:15[\s\S]*(春不老驛站牛肉麵|白蓮寺不二齋－喜悅素鍋)/);
+ assert.match(x.compare,/10:00–11:30[\s\S]*行李寄放大廳/);
  assert.match(h,/泰山仁愛路/);
  assert.match(h,/08:30[\s\S]*泰山仁愛路出發/);
  assert.match(h,/09:00[\s\S]*北投國小｜先投票/);
@@ -97,9 +102,15 @@ for(const diet of ['meat','veg'])for(const mode of ['sunny','rain'])for(const pa
  const sunStops=back.searchParams.get('waypoints').split('|');
  if(mode==='rain'){
   assert.deepEqual(sunStops,[sunMeal],'Rain plan should only stop for winter lunch before returning');
-  assert.match(h,/雨天取消梅花湖與三清宮/);
+  assert.match(h,/13:30[\s\S]*雨天取消梅花湖與三清宮/);
+  assert.match(h,/12:15[\s\S]*(春不老驛站牛肉麵|白蓮寺不二齋－喜悅素鍋)/);
+  assert.match(h,/10:00[\s\S]*早午餐/);
+  assert.match(h,/11:00[\s\S]*行李寄放大廳/);
  }else{
   assert.deepEqual(sunStops,[sunMeal,MEIHUA,SANQING],'Sunday route should be lunch → Meihua Lake → Sanqing Temple → Taishan');
+  assert.match(h,/13:30[\s\S]*梅花湖｜環湖散步/);
+  assert.match(h,/14:45[\s\S]*道教總廟三清宮/);
+  assert.match(h,/15:45[\s\S]*從三清宮返回泰山仁愛路/);
  }
  console.log('PASS '+diet+'/'+mode+'/'+pace+' '+urls.length+' Google Maps links; Longtan, Tangweigou, Meihua, Sanqing, lunch, return');
 }
@@ -110,6 +121,8 @@ assert.match(html,/id="routeModeControls"/);
 assert.match(html,/id="rainSat"/);
 assert.match(html,/11\.28/);
 assert.match(html,/08:30 從泰山仁愛路出發/);
+assert.match(html,/週日 10:00–11:30 飯店早午餐/);
+assert.match(html,/11:00前退房，行李寄放大廳/);
 assert.doesNotMatch(html,/08:30 完成投票後/);
 assert.match(html,/龍潭湖/);
 assert.match(html,/梅花湖/);
