@@ -31,7 +31,10 @@ for(const diet of ['meat','veg'])for(const mode of ['sunny','rain'])for(const pa
  assert.match(h,/11 \/ 28/);assert.match(h,/11 \/ 29/);
  assert.match(h,/北投國小｜先投票/);assert.match(h,/週日早餐已固定/);
  assert.match(h,/泰山仁愛路/);
- assert.match(h,/08:30[\s\S]*投票後從北投國小開往礁溪/);
+ assert.match(h,/08:30[\s\S]*泰山仁愛路出發/);
+ assert.match(h,/09:00[\s\S]*北投國小｜先投票/);
+ assert.match(h,/09:45[\s\S]*投票後從北投國小開往礁溪/);
+
  assert.match(x.active,mode==='rain'?/雨天備案/:pace==='relaxed'?/少繞路/:/加走林美/);
  assert.ok(urls.length>=20,'Per-stop Google Maps directions missing');
  assert.ok(routes(x.compare).length>=3,'Every restaurant needs navigation');
@@ -60,6 +63,8 @@ for(const diet of ['meat','veg'])for(const mode of ['sunny','rain'])for(const pa
  const main=stopList.find(a=>a.length>1);
  assert.ok(main.includes(lunch));
  if(mode==='rain'){
+  assert.match(h,/12:00[\s\S]*金車生技｜全室內海洋生態館/);
+  assert.match(h,/13:00[\s\S]*(拾松辦桌小吃|Mercy 暮曦蔬食創意料理)/);
   assert.ok(main.some(w=>w.includes('淇武蘭路162-13號')));
   assert.doesNotMatch(h,/龍潭湖｜湖畔步道/);
   assert.doesNotMatch(h,/湯圍溝溫泉公園/);
@@ -67,6 +72,8 @@ for(const diet of ['meat','veg'])for(const mode of ['sunny','rain'])for(const pa
   assert.doesNotMatch(h,/梅花湖｜環湖散步/);
   assert.doesNotMatch(h,/三清宮｜參拜/);
  }else{
+  assert.match(h,/12:00[\s\S]*龍潭湖/);
+  assert.match(h,/12:45[\s\S]*(拾松辦桌小吃|Mercy 暮曦蔬食創意料理)/);
   assert.ok(main.some(w=>w.includes(LONGTAN)),'Saturday must route via Longtan Lake');
   assert.match(h,/龍潭湖｜湖畔步道/);
   assert.match(h,/湯圍溝溫泉公園/);
@@ -102,6 +109,8 @@ assert.match(html,/id="featuredVegRestaurants"/);
 assert.match(html,/id="routeModeControls"/);
 assert.match(html,/id="rainSat"/);
 assert.match(html,/11\.28/);
+assert.match(html,/08:30 從泰山仁愛路出發/);
+assert.doesNotMatch(html,/08:30 完成投票後/);
 assert.match(html,/龍潭湖/);
 assert.match(html,/梅花湖/);
 assert.match(html,/三清宮/);
