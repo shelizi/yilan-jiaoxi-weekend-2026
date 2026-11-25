@@ -47,9 +47,9 @@ for(const diet of ['meat','veg'])for(const mode of ['sunny','rain'])for(const pa
  assert.doesNotMatch(x.featured,/明溱禪悅/);
  assert.match(x.featured,/長春素食名人館/);
  assert.doesNotMatch(h+x.featured+x.compare,/春不老驛站|白蓮寺不二齋|冬山午餐/);
- assert.match(h,/17:30[\s\S]*台北晚餐｜餐廳待定/);
- assert.match(h,/18:45[\s\S]*晚餐後返回泰山仁愛路/);
- assert.match(x.compare,/週日 17:30｜台北晚餐/);
+ assert.match(h,/18:00[\s\S]*明都大自然素食館｜台北素食合菜/);
+ assert.match(h,/19:15[\s\S]*晚餐後返回泰山仁愛路/);
+ assert.match(x.compare,/週日 18:00｜明都大自然素食館/);
  assert.ok(x.featured.includes('約 NT$200–400／人'));
  assert.doesNotMatch(h,/石港春帆/);
  for(const url of urls){
@@ -98,10 +98,11 @@ for(const diet of ['meat','veg'])for(const mode of ['sunny','rain'])for(const pa
  }
  const dinner=diet==='veg'?'宜蘭縣礁溪鄉礁溪路三段12號':'宜蘭縣礁溪鄉中山路二段172號';
  assert.ok(urls.some(u=>u.searchParams.get('waypoints')?.includes(dinner)),'Saturday dinner route must update');
- const back=urls.find(u=>u.searchParams.get('origin')?.includes('長榮鳳凰酒店')&&u.searchParams.get('destination')==='台北市, 台灣');
- assert.ok(back,'Return to Taipei region missing');
+ const back=urls.find(u=>u.searchParams.get('origin')?.includes('長榮鳳凰酒店')&&u.searchParams.get('destination')==='台北市士林區重慶北路四段148號');
+ assert.ok(back,'Route to Mingdu restaurant missing');
  const sunStops=back.searchParams.get('waypoints')?.split('|')||[];
- assert.ok(urls.some(u=>u.searchParams.get('destination')?.includes(TAISHAN)&&!u.searchParams.has('origin')),'Dinner to home navigation missing');
+ assert.ok(urls.some(u=>u.searchParams.get('destination')?.includes(TAISHAN)&&u.searchParams.get('origin')==='台北市士林區重慶北路四段148號'),'Mingdu to home navigation missing');
+ assert.match(h,/tel:0228127891/);
  if(mode==='rain'){
   assert.deepEqual(sunStops,[],'Rain plan must return directly to Taipei');
   assert.match(h,/11:30[\s\S]*領取行李・取車直接北返台北/);
@@ -128,7 +129,7 @@ assert.match(html,/龍潭湖/);
 assert.match(html,/梅花湖/);
 assert.match(html,/三清宮/);
 assert.doesNotMatch(html+script,/冬山午餐|春不老驛站|白蓮寺不二齋|sunLunch/);
-assert.match(html,/17:30台北晚餐/);
+assert.match(html,/18:00明都大自然素食館/);
 assert.doesNotMatch(script,/明溱禪悅/);
 assert.doesNotMatch(html,/明溱禪悅/);
 console.log('PASS route audit notice, new attractions, pace controls, rainy-day and weather UI');
