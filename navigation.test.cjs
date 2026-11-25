@@ -32,8 +32,7 @@ for(const diet of ['meat','veg'])for(const mode of ['sunny','rain'])for(const pa
  assert.match(h,/北投國小｜先投票/);assert.match(h,/週日早午餐已固定/);
  assert.match(h,/10:00[\s\S]*長榮鳳凰酒店｜桂冠早午餐/);
  assert.match(h,/11:00[\s\S]*辦理退房｜行李寄放大廳/);
- assert.match(h,/11:30[\s\S]*領取行李・取車前往冬山/);
- assert.match(h,/12:15[\s\S]*(春不老驛站牛肉麵|白蓮寺不二齋－喜悅素鍋)/);
+ assert.match(h,/11:30[\s\S]*領取行李・取車(前往冬山|直接北返台北)/);
  assert.match(x.compare,/10:00–11:30[\s\S]*行李寄放大廳/);
  assert.match(h,/泰山仁愛路/);
  assert.match(h,/08:30[\s\S]*泰山仁愛路出發/);
@@ -41,13 +40,16 @@ for(const diet of ['meat','veg'])for(const mode of ['sunny','rain'])for(const pa
  assert.match(h,/09:45[\s\S]*投票後從北投國小開往礁溪/);
 
  assert.match(x.active,mode==='rain'?/雨天備案/:pace==='relaxed'?/少繞路/:/加走林美/);
- assert.ok(urls.length>=20,'Per-stop Google Maps directions missing');
+ assert.ok(urls.length>=18,'Per-stop Google Maps directions missing');
  assert.ok(routes(x.compare).length>=3,'Every restaurant needs navigation');
- assert.equal((x.featured.match(/class="veggie-feature-card"/g)||[]).length,3);
+ assert.equal((x.featured.match(/class="veggie-feature-card"/g)||[]).length,2);
  assert.match(x.featured,/Mercy 暮曦蔬食創意料理/);
  assert.doesNotMatch(x.featured,/明溱禪悅/);
  assert.match(x.featured,/長春素食名人館/);
- assert.match(x.featured,/白蓮寺不二齋/);
+ assert.doesNotMatch(h+x.featured+x.compare,/春不老驛站|白蓮寺不二齋|冬山午餐/);
+ assert.match(h,/17:30[\s\S]*台北晚餐｜餐廳待定/);
+ assert.match(h,/18:45[\s\S]*晚餐後返回泰山仁愛路/);
+ assert.match(x.compare,/週日 17:30｜台北晚餐/);
  assert.ok(x.featured.includes('約 NT$200–400／人'));
  assert.doesNotMatch(h,/石港春帆/);
  for(const url of urls){
@@ -96,21 +98,19 @@ for(const diet of ['meat','veg'])for(const mode of ['sunny','rain'])for(const pa
  }
  const dinner=diet==='veg'?'宜蘭縣礁溪鄉礁溪路三段12號':'宜蘭縣礁溪鄉中山路二段172號';
  assert.ok(urls.some(u=>u.searchParams.get('waypoints')?.includes(dinner)),'Saturday dinner route must update');
- const sunMeal=diet==='veg'?'宜蘭縣冬山鄉廣興村永興路二段867號':'宜蘭縣冬山鄉丸山路259號';
- const back=urls.find(u=>u.searchParams.get('origin')?.includes('長榮鳳凰酒店')&&u.searchParams.get('destination')?.includes(TAISHAN)&&u.searchParams.has('waypoints'));
- assert.ok(back,'Return to Taishan missing');
- const sunStops=back.searchParams.get('waypoints').split('|');
+ const back=urls.find(u=>u.searchParams.get('origin')?.includes('長榮鳳凰酒店')&&u.searchParams.get('destination')==='台北市, 台灣');
+ assert.ok(back,'Return to Taipei region missing');
+ const sunStops=back.searchParams.get('waypoints')?.split('|')||[];
+ assert.ok(urls.some(u=>u.searchParams.get('destination')?.includes(TAISHAN)&&!u.searchParams.has('origin')),'Dinner to home navigation missing');
  if(mode==='rain'){
-  assert.deepEqual(sunStops,[sunMeal],'Rain plan should only stop for winter lunch before returning');
-  assert.match(h,/13:30[\s\S]*雨天取消梅花湖與三清宮/);
-  assert.match(h,/12:15[\s\S]*(春不老驛站牛肉麵|白蓮寺不二齋－喜悅素鍋)/);
-  assert.match(h,/10:00[\s\S]*早午餐/);
-  assert.match(h,/11:00[\s\S]*行李寄放大廳/);
+  assert.deepEqual(sunStops,[],'Rain plan must return directly to Taipei');
+  assert.match(h,/11:30[\s\S]*領取行李・取車直接北返台北/);
+  assert.match(h,/14:00[\s\S]*台北自由活動/);
  }else{
-  assert.deepEqual(sunStops,[sunMeal,MEIHUA,SANQING],'Sunday route should be lunch → Meihua Lake → Sanqing Temple → Taishan');
-  assert.match(h,/13:30[\s\S]*梅花湖｜環湖散步/);
-  assert.match(h,/14:45[\s\S]*道教總廟三清宮/);
-  assert.match(h,/15:45[\s\S]*從三清宮返回泰山仁愛路/);
+  assert.deepEqual(sunStops,[MEIHUA,SANQING],'Sunday route should be Meihua Lake → Sanqing Temple → Taipei');
+  assert.match(h,/12:15[\s\S]*梅花湖｜環湖散步/);
+  assert.match(h,/13:40[\s\S]*道教總廟三清宮/);
+  assert.match(h,/14:30[\s\S]*離開冬山｜北返台北/);
  }
  console.log('PASS '+diet+'/'+mode+'/'+pace+' '+urls.length+' Google Maps links; Longtan, Tangweigou, Meihua, Sanqing, lunch, return');
 }
@@ -127,6 +127,8 @@ assert.doesNotMatch(html,/08:30 完成投票後/);
 assert.match(html,/龍潭湖/);
 assert.match(html,/梅花湖/);
 assert.match(html,/三清宮/);
+assert.doesNotMatch(html+script,/冬山午餐|春不老驛站|白蓮寺不二齋|sunLunch/);
+assert.match(html,/17:30台北晚餐/);
 assert.doesNotMatch(script,/明溱禪悅/);
 assert.doesNotMatch(html,/明溱禪悅/);
 console.log('PASS route audit notice, new attractions, pace controls, rainy-day and weather UI');
