@@ -2,6 +2,7 @@
 'use strict';
 (function () {
   const hotel = '宜蘭縣礁溪鄉健康路77號 長榮鳳凰酒店';
+  const lanternFestival={name:'礁溪溫泉燈花季',hours:'18:00–23:00',display:'泉起光瀾',square:'礁溪溫泉廣場',mapPoint:'礁溪溫泉廣場 宜蘭縣礁溪鄉礁溪路五段與溫泉路口',source:'https://www.jiaoxi-tourism.tw/index.php/zh/news/item/2118-2026'};
   const places = {
     departure: {name:'泰山仁愛路',address:'新北市泰山區仁愛路, 台灣',note:'出發／返家起點為新北市泰山區仁愛路；未提供門牌，請在 Google 地圖確認實際上車位置。'},
     beitou: {name:'北投國小（投票前請核對通知單）',address:'臺北市北投區中央北路一段73號 北投國小',source:'https://info.cec.gov.tw/vote2026/'},
@@ -57,7 +58,7 @@
         {time:'17:40',kind:'move',title:'出發前往晚餐餐廳',duration:'預留35分鐘含移車及停車',description:'葷食礁溪膳館、素食長春素食名人館，同一路段約840公尺；可短程接送，晚餐後先把車停回飯店。',place:'hotel'},
         {time:'18:15',kind:'food',meal:'satDinner',duration:'約75–85分鐘；葷素分開依實際人數點菜'},
         {time:'19:40',kind:'move',title:'晚餐後返回飯店停車',duration:'預留25分鐘含取車及停車',description:'若葷素分開用餐，先在兩店間接人會合，再回飯店停好車步行泡腳。若已晚或下雨，直接休息。',place:'hotel'},
-        {time:'20:05',kind:'walk',title:'湯圍溝溫泉公園｜夜間泡腳散步',duration:'約40–50分鐘',description:'飯店到公園約0.7–0.8公里、步行約10分鐘；不再移車。注意足湯開放時段，時間不足則只散步。',place:'tangweigou',travelMode:'walking'}
+        {time:'20:05',kind:'walk',title:'湯圍溝溫泉公園｜夜間泡腳散步',duration:'約40–50分鐘',description:'飯店到公園約0.7–0.8公里、步行約10分鐘；不再移車。注意足湯開放時段，時間不足則只散步。若天氣許可，可沿湯圍溪步道順遊'+lanternFestival.name+'，在'+lanternFestival.square+'看主燈「'+lanternFestival.display+'」；每日 '+lanternFestival.hours+' 免費賞燈。',place:'tangweigou',travelMode:'walking',lantern:true}
       ]
     },
     sun:{
@@ -152,6 +153,10 @@
         if(prior&&prior!==here)links.push('<a target="_blank" rel="noopener" href="'+esc(directionsUrl(here,prior,undefined,e.travelMode||'driving'))+'">↗ 前一站 → 此站路線</a>');
         links.push('<a target="_blank" rel="noopener" href="'+esc(mapUrl(here))+'">⌖ 查看地點 ↗</a>');
       }
+    }
+    if(e.lantern){
+      links.push('<a target="_blank" rel="noopener" href="'+esc(directionsUrl(lanternFestival.mapPoint,here,undefined,'walking'))+'">湯圍溝 → 主燈步行 ↗</a>');
+      links.push('<a target="_blank" rel="noopener" href="'+esc(lanternFestival.source)+'">燈花季官方資訊 ↗</a>');
     }
     if(place&&place.source)links.push('<a target="_blank" rel="noopener" href="'+esc(place.source)+'">查看官方資訊 ↗</a>');
     if(tel)links.push('<a href="tel:'+esc(tel.replace(/\D/g,''))+'">☎ 致電詢問 '+esc(tel)+'</a>');
@@ -248,7 +253,7 @@
         const m=e.meal?meals[e.meal][state.diet]:null;
         lines.push(e.time+'  '+(m?m.name:e.title)+(m?'｜'+m.address:''));
       });
-      if(k==='sat'){lines.push('泰山→北投國小投票導航：'+routeUrl(k,'poll'));lines.push('北投國小→礁溪導航：'+routeUrl(k,'day'));lines.push('塞車直達午餐導航：'+routeUrl(k,'traffic'));lines.push('週六晚餐開車來回：'+routeUrl(k,'evening'));if(state.mode!=='rain')lines.push('飯店→湯圍溝步行：'+routeUrl(k,'walk'));}
+      if(k==='sat'){lines.push('泰山→北投國小投票導航：'+routeUrl(k,'poll'));lines.push('北投國小→礁溪導航：'+routeUrl(k,'day'));lines.push('塞車直達午餐導航：'+routeUrl(k,'traffic'));lines.push('週六晚餐開車來回：'+routeUrl(k,'evening'));if(state.mode!=='rain'){lines.push('飯店→湯圍溝步行：'+routeUrl(k,'walk'));lines.push('散步可選：'+lanternFestival.name+'｜'+lanternFestival.square+'「'+lanternFestival.display+'」｜'+lanternFestival.hours+' 免費賞燈');lines.push('湯圍溝→主燈步行：'+directionsUrl(lanternFestival.mapPoint,places.tangweigou.address,undefined,'walking'));lines.push('燈花季官方資訊：'+lanternFestival.source);}}
       else{lines.push('週日北返明都大自然素食館：'+routeUrl(k));lines.push('晚餐後回泰山：'+routeUrl(k,'home'));}
       lines.push('');
     });

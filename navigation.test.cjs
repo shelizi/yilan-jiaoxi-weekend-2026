@@ -86,9 +86,13 @@ for(const diet of ['meat','veg'])for(const mode of ['sunny','rain'])for(const pa
   assert.match(h,/14:30[\s\S]*金車生技｜全室內海洋生態館/);
   assert.ok(main[1].includes('淇武蘭路162-13號'));
   assert.doesNotMatch(h,/龍潭湖｜湖畔步道|林美石磐步道｜替代龍潭湖|湯圍溝溫泉公園｜夜間泡腳散步|梅花湖｜環湖散步|三清宮｜參拜/);
+  assert.doesNotMatch(h,/泉起光瀾|燈花季官方資訊/);
   assert.ok(!urls.some(u=>u.searchParams.get('travelmode')==='walking'),'Rain plan must not include walking route');
  }else{
   assert.match(h,/湯圍溝溫泉公園｜夜間泡腳散步/);
+  assert.match(h,/礁溪溫泉燈花季[\s\S]*泉起光瀾[\s\S]*18:00–23:00 免費賞燈/);
+  assert.ok(h.includes('https://www.jiaoxi-tourism.tw/index.php/zh/news/item/2118-2026'));
+  assert.ok(urls.some(u=>u.searchParams.get('travelmode')==='walking'&&u.searchParams.get('origin')?.includes('德陽路99之11號')&&u.searchParams.get('destination')?.includes('礁溪溫泉廣場')),'Optional lantern walk should start at Tangweigou');
   assert.match(h,/梅花湖｜環湖散步/);
   assert.match(h,/三清宮｜參拜/);
   if(pace==='relaxed'){
